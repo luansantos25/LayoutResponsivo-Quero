@@ -1,0 +1,99 @@
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { ... }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+/* HEADER */
+
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+    /* SEMESTERS */
+
+.semesters ul li {
+    float: right;
+}
+
+.semesters ul.semester-list li:first-child {
+        border-radius: 0px 10px 10px 0;
+}
+
+.semesters ul.semester-list li:last-child {
+        border-radius: 10px 0 0 10px;
+}
+
+/* BOLSAS */
+
+.add-bolsa {
+    width: 200px;
+    height: 400px;
+}
+
+/* FOOTER */
+footer .chat, footer .email, footer .help {
+    padding: 10px;
+}
+
+footer .chat {
+    border-left: solid 4px #18ACC4;
+}
+
+footer .f-bottom {
+    padding: 30px;
+}
+
+footer .f-icon {
+    margin-right: 14px;
+}
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { ... }
+
+
+
+@media (max-width: 575.98px) { ... }
+
+@media (max-width: 767.98px) { ... }
+
+@media (max-width: 991.98px) {
+
+    /* DEFAULT */
+    .d-md-inline {
+        display: inline !important;
+    }
+
+    .d-md-block {
+        display: block !important;
+    }
+
+    .d-md-flex {
+        display: flex !important;
+    }
+
+    .d-md-none {
+        display: none;
+    }
+
+/* FOOTER */
+
+footer .f-top {
+    padding: 40px;
+    border-bottom: solid 4px #18ACC4;
+}
+
+footer .whatsapp-icon {
+    font-size: 40px;
+    margin-right: 50px;
+}
+
+
+
+}
+
+@media (max-width: 1199.98px) { ... }

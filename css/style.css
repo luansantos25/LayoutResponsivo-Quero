@@ -5,7 +5,27 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+}
+
+h1, h2, h3 {
     font-weight: 600;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.align-left {
+    float: left;
+}
+
+.align-right {
+    float: right;
+}
+
+.d-none {
+    display: none !important;
 }
 
 .d-flex {
@@ -20,12 +40,20 @@ html, body {
     justify-content: center;
 }
 
+.justify-content-end {
+    justify-content: flex-end;
+}
+
 .justify-content-space-between {
     justify-content: space-between;
 }
 
 .align-items-center {
     align-items: center;
+}
+
+.flex-1 {
+    flex: 1;
 }
 
 /* HEADER */
@@ -36,7 +64,7 @@ header#header {
 }
 
 header#header .header-center {
-    flex: 2;
+    flex: 1;
 }
 
 header#header .header-center img {
@@ -45,27 +73,46 @@ header#header .header-center img {
     margin: 0 auto;
 }
 
-header#header .header-left {
-    flex: 1;
+header#header .header-left-mb, header#header .header-left {
     color: #007A8D;
-    border-right: solid 4px #FBFBFB;
 }
 
-header#header .header-right {
-    flex: 1;
+header#header .header-right-mb {
     color: #007A8D;
-    border-left: solid 2px #FBFBFB;
 }
 
-header#header .header-left .help-icon, header#header .header-right .acc-icon {
+header#header .header-left-mb .help-icon, header#header .header-right-mb .acc-icon {
     font-size: 30px;
+}
+
+header#header .header-left .help-icon, header#header .header-right .acc-icon,
+    header#header .header-left .whatsapp-icon {
+    font-size: 30px;
+    margin-right: 5px;
+}
+
+header#header .h-box-left {
+    flex: 2;
+}
+
+header#header .h-box-left .border {
+    border-left: solid 4px #FBFBFB;
+}
+
+header#header .h-box-right {
+    flex: 2;
+}
+
+
+header#header .h-box-left div {
+    padding: 0 10px;
 }
 
 /* SUB-HEADER */
 .sub-header {
     background-color: #18ACC4;
-    line-height: 30px;
-    height: 30px;
+    line-height: 50px;
+    height: 50px;
     color: #fff;
 }
 
@@ -83,12 +130,17 @@ header#header .header-left .help-icon, header#header .header-right .acc-icon {
 
 .navigation {
     padding: 40px;
-    color: #007A8D;    
+    color: #007A8D;
 }
 
 /* CONTENT */
 .container {
     padding: 10px;
+}
+
+.semesters {
+    overflow: auto;
+    clear: both;
 }
 
 .semesters ul.semester-list {
@@ -99,8 +151,9 @@ header#header .header-left .help-icon, header#header .header-right .acc-icon {
 }
 
 .semesters ul.semester-list li {
+    min-width: 200px;
     border: solid 1px #007A8D;
-    border-collapse: collapse;    
+    border-collapse: collapse;
     padding: 10px;
     text-align: center;
 }
@@ -121,5 +174,48 @@ header#header .header-left .help-icon, header#header .header-right .acc-icon {
 /* BOLSA */
 
 .add-bolsa {
-    box-shadow: 1px 1px 1px 1px;
+    margin-top: 50px;
+    padding: 60px;
+    box-shadow: 0px 1px 5px 0px;;
+    text-align: center;
+}
+
+.add-bolsa .plus-icon {
+    font-size: 100px;
+    color: #18ACC4;
+}
+
+.add-bolsa p {
+    font-size: 20px;
+    line-height: 26px;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #007A8D;
+    color: #fff;
+}
+
+footer .chat, footer .email, footer .help {
+    text-align: center;
+    padding: 40px;
+    font-size: 25px;
+    flex: 1;
+}
+
+footer .email {
+    border-width: 0px 4px 0px 4px;
+    border-color: #18ACC4;
+    border-style: solid;
+}
+
+footer .f-icon {
+    font-size: 45px;
+}
+
+footer .f-end {
+    padding: 30px;
+    text-align: center;
+    background-color: #18ACC4;
 }

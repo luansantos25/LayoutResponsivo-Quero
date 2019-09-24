@@ -3,41 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css" />
 <!--    <link rel="stylesheet" href="assets/font-awesome/css/all.css">  -->
 </head>
 <body>
-   
     <header id="header" class="d-flex justify-content-space-between">
-        <div class="header-left d-flex flex-col justify-content-space-between align-items-center">
-        <i class="fas fa-info-circle help-icon"></i>
-        <span>Ajuda</span>
-        </div>        
+        <div class="h-box-left d-flex">
+            <div class="header-left-mb d-none d-md-flex flex-col justify-content-space-between align-items-center">
+                <i class="fas fa-info-circle help-icon"></i>
+                <span>Ajuda</span>
+            </div>
+            <div class="header-left d-flex d-md-none align-items-center">
+                <i class="fas fa-info-circle help-icon"></i>
+                <span>Como Funciona</span>
+            </div>
+            <div class="header-left d-flex d-md-none align-items-center justify-content-center border">
+                <i class="fab fa-whatsapp whatsapp-icon"></i>
+                <div>0800 123 2222<br />
+                Envie mensagem ou ligue</div>
+            </div>
+        </div>
         <div class="header-center">
             <img src="img/quero-bolsa.png">
-        </div>        
-        <div class="header-right d-flex flex-col justify-content-space-between align-items-center">
-        <i class="far fa-user-circle acc-icon"></i>
-        <span>Conta</span>
-        </div>                               
-    </header>    
+        </div>
+        <div class="h-box-right d-flex d- justify-content-end">
+            <div class="header-right-mb d-none d-md-flex flex-col justify-content-space-between align-items-center hide">
+                <i class="far fa-user-circle acc-icon"></i>
+                <span>Conta</span>
+            </div>
+            <div class="header-left d-flex d-md-none align-items-center">
+                <i class="fas fa-info-circle help-icon"></i>
+                <span>Nome e sobrenome</span>
+            </div>
+        </div>
+    </header>
     <div class="sub-header">
             <div class="my-account">Minha Conta</div>
-            <div class="menu">Menu <i class="fas fa-caret-down"></i></div>
-    </div>        
-    
-    
-    <div class="navigation">
-        <a><i class="fas fa-chevron-left"></i> Minha Conta</a>
+            <div class="my-account d-md-none">Pré Matrículas</div>
+            <div class="my-account d-md-none">Bolas Favoritas</div>
+            <div class="menu d-none d-md-block">Menu <i class="fas fa-caret-down"></i></div>
     </div>
-    
+
+
+    <div class="navigation">
+        <a class="d-md-none"><i class="fas fa-chevron-left d-none d-md-inline"></i> Home /</a>
+        <a><i class="fas fa-chevron-left d-none d-md-inline"></i> Minha Conta <span class="d-md-none">/</span></a>
+        <a class="d-md-none"> Bolsas Favoritas</a>
+    </div>
+
     <div class="container">
-        
         <div class="top-info">
             <h1>Bolsas Favoritas</h1>
             <h3>Adicione bolsas de cursos e faculdades do seu interesse e receba atualizações com as melhores ofertas disponíveis.</h3>
-            
-            <div class="semesters">            
+
+            <div class="semesters">
                 <ul class="semester-list">
                     <li>Todos os semestres</li>
                     <li>2º Semestre</li>
@@ -45,22 +67,79 @@
                 </ul>
             </div>
         </div>
-        
-        <div class="add-bolsa">
-            <i class="fas fa-plus-circle"></i>
-            <div class="text">
-            <h1>Adicionar bolsa</h1>
-                <p>Clique para adicionar bolsas de cursos do seu interesse</p>
+
+        <div class="bolsas">
+            <div class="add-bolsa flex-item">
+                <i class="fas fa-plus-circle plus-icon"></i>
+                <div class="text">
+                <h1>Adicionar bolsa</h1>
+                    <p>Clique para adicionar bolsas de cursos do seu interesse</p>
+                </div>
             </div>
         </div>
-        
-        
-        
     </div>
-    
-    
-    
-    
+
+    <footer>
+        <div class="f-top d-none d-md-flex align-items-center justify-content-center">
+            <i class="fab fa-whatsapp whatsapp-icon"></i>
+            <div>0800 123 2222<br />
+            Segunda a sexta de 8h às 22h</div>
+        </div>
+
+
+        <div class="f-bottom d-none d-md-flex">
+            <div class="chat flex-1">
+                <i class="far fa-comments f-icon"></i>
+                <p>
+                    Chat
+                </p>
+            </div>
+            <div class="email flex-1">
+                <i class="far fa-envelope f-icon"></i>
+                <p>
+                    E-mail
+                </p>
+            </div>
+            <div class="help flex-1">
+                <i class="fas fa-info-circle f-icon"></i>
+                <p>
+                    Ajuda
+                </p>
+            </div>
+        </div>
+
+        <div class="f-bottom d-md-none d-flex">
+            <div class="d-flex flex-1 align-items-center justify-content-center">
+                <i class="fab fa-whatsapp whatsapp-icon f-icon"></i>
+                <div>0800 123 2222<br />
+                Seg - Sex 8h-22h</div>
+            </div>
+            <div class="d-flex flex-1 align-items-center justify-content-center">
+                <i class="far fa-comments f-icon"></i>
+                <div>Chat ao vivo<br />
+                    Seg - Sex 8h-22h</div>
+            </div>
+            <div class="d-flex flex-1 align-items-center justify-content-center">
+                <i class="far fa-envelope f-icon"></i>
+                <div>Mande um email<br />
+                    Respondemos rapidinho</div>
+            </div>
+            <div class="d-flex flex-1 align-items-center justify-content-center">
+                <i class="fas fa-info-circle f-icon"></i>
+                <div>Central de ajuda<br />
+                    Encontre todas as respostas</div>
+            </div>
+        </div>
+        <div class="f-end">
+            <p>
+                Feito com <i class="far fa-heart"></i> pela Quero Educação
+            </p>
+        </div>
+    </footer>
+
+
+
+
 <!--    <script type="application/javascript" src="assets/font-awesome/js/all.js"></script>-->
     <script src="https://kit.fontawesome.com/70b4df623f.js" crossorigin="anonymous"></script>
 </body>
