@@ -10,7 +10,7 @@
 <!--    <link rel="stylesheet" href="assets/font-awesome/css/all.css">  -->
 </head>
 <body>
-    <header id="header" class="d-flex justify-content-space-between">
+    <header id="header" class="container d-flex justify-content-space-between">
         <div class="h-box-left d-flex">
             <div class="header-left-mb d-none d-md-flex flex-col justify-content-space-between align-items-center">
                 <i class="fas fa-info-circle help-icon"></i>
@@ -34,21 +34,23 @@
                 <i class="far fa-user-circle acc-icon"></i>
                 <span>Conta</span>
             </div>
-            <div class="header-left d-flex d-md-none align-items-center">
-                <i class="fas fa-info-circle help-icon"></i>
+            <div class="header-right d-flex d-md-none align-items-center">
                 <span>Nome e sobrenome</span>
+                <i class="far fa-user-circle acc-icon"></i>
             </div>
         </div>
     </header>
     <div class="sub-header">
-            <div class="my-account">Minha Conta</div>
-            <div class="my-account d-md-none">Pré Matrículas</div>
-            <div class="my-account d-md-none">Bolas Favoritas</div>
-            <div class="menu d-none d-md-block">Menu <i class="fas fa-caret-down"></i></div>
+        <ul class="container">
+            <li class="my-account">Minha Conta</li>
+            <li class="my-account d-md-none">Pré Matrículas</li>
+            <li class="my-account d-md-none">Bolas Favoritas</li>
+            <li class="menu d-none d-md-block">Menu <i class="fas fa-caret-down"></i></li>
+        </ul>
     </div>
 
 
-    <div class="navigation">
+    <div class="container navigation">
         <a class="d-md-none"><i class="fas fa-chevron-left d-none d-md-inline"></i> Home /</a>
         <a><i class="fas fa-chevron-left d-none d-md-inline"></i> Minha Conta <span class="d-md-none">/</span></a>
         <a class="d-md-none"> Bolsas Favoritas</a>
@@ -69,7 +71,7 @@
         </div>
 
         <div class="bolsas">
-            <div class="add-bolsa flex-item">
+            <div id="myBtn" class="add-bolsa flex-item">
                 <i class="fas fa-plus-circle plus-icon"></i>
                 <div class="text">
                 <h1>Adicionar bolsa</h1>
@@ -138,9 +140,134 @@
     </footer>
 
 
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Adicionar bolsa</h2>
+        <p>Filtre e adicione as bolsas de seu interesse</p>
+
+        <form class="hz-form form-bolsa">
+            <div class="form-group d-flex justify-content-space-between">
+                <div class="input">
+                    <label>Cidade</label>
+                    <select>
+                        <option>Cidade</option>
+                    </select>
+                </div>
+                <div class="input">
+                    <label>Selecione o curso de sua preferência</label>
+                    <select>
+                        <option>Cidade</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="filter form-group d-flex justify-content-space-between">
+                <div class="input">
+                    <h4>Como você pretende estudar?</h4>
+                    <br>
+                    <input type="checkbox" name="">
+                    <label>Presencial</label>
+                    <input type="checkbox" name="">
+                    <label>A distância</label>
+                </div>
+                <div class="input">
+                    <h4>Até quanto pode pagar?</h4>
+                    <p>R$10.000</p>
+                    <input type="range" class="slider" name="points" min="0" max="10">
+                </div>
+            </div>
+        </form>
+
+        <div class="list-header d-flex justify-content-space-between">
+            <h4>Resultado</h4>
+            <h4>Ordenar por <span>Nome da Faculdade<i class="fas fa-caret-down" style="margin-left: 5px"></i></span></h4>
+        </div>
+        <div class="results">
+            <div class="result d-flex align-items-center">
+                <div class="option d-flex flex-1 align-items-center">
+                    <input type="checkbox" name="">
+                    <img src="img/quero-bolsa.png">
+                </div>
+                <div class="description flex-3">
+                    <div class="d-flex justify-content-space-between">
+                        <div class="info">
+                            <h4>Administração</h4>
+                            <p>Bacharelado</p>
+                        </div>
+                        <div class="values">
+                            <p>Bolsa de</p>
+                            <p>R$ 374,00 /mês</p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="result d-flex align-items-center">
+                <div class="option d-flex flex-1 align-items-center">
+                    <input type="checkbox" name="">
+                    <img src="img/quero-bolsa.png">
+                </div>
+                <div class="description flex-3">
+                    <div class="d-flex justify-content-space-between">
+                        <div class="info">
+                            <h4>Administração</h4>
+                            <p>Bacharelado</p>
+                        </div>
+                        <div class="values">
+                            <p>Bolsa de</p>
+                            <p>R$ 374,00 /mês</p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div>
+                <button>Cancelar</button>
+                <button>Adicionar bolsas</button>
+            </div>                    
+        </div>
+
+      </div>
+
+    </div>
+
 
 
 <!--    <script type="application/javascript" src="assets/font-awesome/js/all.js"></script>-->
     <script src="https://kit.fontawesome.com/70b4df623f.js" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
+
+</script>    
 </body>
 </html>

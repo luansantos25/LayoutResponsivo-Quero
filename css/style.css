@@ -11,7 +11,7 @@ h1, h2, h3 {
     font-weight: 600;
 }
 
-p {
+p, h4 {
     margin: 0;
     padding: 0;
 }
@@ -56,6 +56,19 @@ p {
     flex: 1;
 }
 
+.flex-2 {
+  flex: 2;
+}
+
+.flex-3 {
+  flex: 3;
+}
+
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
 /* HEADER */
 
 header#header {
@@ -77,8 +90,12 @@ header#header .header-left-mb, header#header .header-left {
     color: #007A8D;
 }
 
-header#header .header-right-mb {
+header#header .header-right-mb, header#header .header-right {
     color: #007A8D;
+}
+
+header#header .header-right .acc-icon {
+    margin-left: 5px;
 }
 
 header#header .header-left-mb .help-icon, header#header .header-right-mb .acc-icon {
@@ -116,12 +133,17 @@ header#header .h-box-left div {
     color: #fff;
 }
 
-.sub-header div.my-account {
-    float: left;
-    margin: 0 10px 0 10px;
+.sub-header ul {
+    list-style: none;
+    padding: 0;
 }
 
-.sub-header div.menu {
+.sub-header ul li.my-account {
+    float: left;
+    margin: 0 10px 0 0px;
+}
+
+.sub-header ul li.menu {
     float: right;
     margin: 0 10px 0 10px;
 }
@@ -129,15 +151,11 @@ header#header .h-box-left div {
 /* NAVIGATION */
 
 .navigation {
-    padding: 40px;
+    padding: 40px 0;
     color: #007A8D;
 }
 
 /* CONTENT */
-.container {
-    padding: 10px;
-}
-
 .semesters {
     overflow: auto;
     clear: both;
@@ -195,6 +213,7 @@ header#header .h-box-left div {
 footer {
     background-color: #007A8D;
     color: #fff;
+    margin-top: 40px;
 }
 
 footer .chat, footer .email, footer .help {
@@ -218,4 +237,137 @@ footer .f-end {
     padding: 30px;
     text-align: center;
     background-color: #18ACC4;
+}
+
+/* MODAL FORM*/
+
+form.form-bolsa {
+  margin-top: 40px;
+}
+
+.hz-form .input {
+  flex: 1;
+  max-width: 48%;
+}
+
+form .form-group {
+  margin-bottom: 30px;
+}
+
+form select {
+  background-color: #fff;
+  width: -webkit-fill-available;
+  height: 40px;
+  border-radius: 5px;
+}
+
+form input[type='range'] {
+  width: -webkit-fill-available;
+}
+
+/* MODAL - RESULTADOS */
+
+.results .result {
+  border-top: solid 2px gray;
+  padding: 30px 0;
+}
+
+.results .result img {
+  width: 70%;
+  margin: 0 auto;
+}
+
+form.form-bolsa .filter {
+  line-height: 25px;
+}
+
+.list-header {
+  padding: 10px 0;
+}
+
+/* INPUT RANGE*/
+
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 5px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  border-radius: 50%;
+  background: #fff; /* Green background */
+  border: solid 3px #4CAF50;
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  border-radius: 50%;
+  background: #4CAF50; /* Green background */
+  border: solid 3px #4CAF50;
+  cursor: pointer; /* Cursor on hover */
+}
+
+
+/* MODAL */
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+  min-width: 500px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
