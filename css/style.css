@@ -1,0 +1,125 @@
+/* SETTINGS */
+
+html, body {
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-space-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+/* HEADER */
+
+header#header {
+    height: 60px;
+    padding: 10px;
+}
+
+header#header .header-center {
+    flex: 2;
+}
+
+header#header .header-center img {
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+}
+
+header#header .header-left {
+    flex: 1;
+    color: #007A8D;
+    border-right: solid 4px #FBFBFB;
+}
+
+header#header .header-right {
+    flex: 1;
+    color: #007A8D;
+    border-left: solid 2px #FBFBFB;
+}
+
+header#header .header-left .help-icon, header#header .header-right .acc-icon {
+    font-size: 30px;
+}
+
+/* SUB-HEADER */
+.sub-header {
+    background-color: #18ACC4;
+    line-height: 30px;
+    height: 30px;
+    color: #fff;
+}
+
+.sub-header div.my-account {
+    float: left;
+    margin: 0 10px 0 10px;
+}
+
+.sub-header div.menu {
+    float: right;
+    margin: 0 10px 0 10px;
+}
+
+/* NAVIGATION */
+
+.navigation {
+    padding: 40px;
+    color: #007A8D;    
+}
+
+/* CONTENT */
+.container {
+    padding: 10px;
+}
+
+.semesters ul.semester-list {
+    list-style: none;
+    color: #007A8D;
+    padding: 0;
+    margin: 0;
+}
+
+.semesters ul.semester-list li {
+    border: solid 1px #007A8D;
+    border-collapse: collapse;    
+    padding: 10px;
+    text-align: center;
+}
+
+.semesters ul.semester-list li:first-child {
+        border-radius: 10px 10px 0 0;
+}
+
+.semesters ul.semester-list li:last-child {
+        border-radius: 0 0 10px 10px;
+}
+
+.semesters ul.semester-list li:hover {
+    background-color: #007A8D;
+    color: #fff;
+}
+
+/* BOLSA */
+
+.add-bolsa {
+    box-shadow: 1px 1px 1px 1px;
+}
