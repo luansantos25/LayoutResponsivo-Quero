@@ -1,17 +1,21 @@
 /* SETTINGS */
 
-html, body {
+html,
+body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: sans-serif;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-weight: 600;
 }
 
-p, h4 {
+p,
+h4 {
     margin: 0;
     padding: 0;
 }
@@ -57,11 +61,11 @@ p, h4 {
 }
 
 .flex-2 {
-  flex: 2;
+    flex: 2;
 }
 
 .flex-3 {
-  flex: 3;
+    flex: 3;
 }
 
 .row {
@@ -98,11 +102,13 @@ header#header .header-center img {
     margin: 0 auto;
 }
 
-header#header .header-left-mb, header#header .header-left {
+header#header .header-left-mb,
+header#header .header-left {
     color: #007A8D;
 }
 
-header#header .header-right-mb, header#header .header-right {
+header#header .header-right-mb,
+header#header .header-right {
     color: #007A8D;
 }
 
@@ -110,12 +116,14 @@ header#header .header-right .acc-icon {
     margin-left: 5px;
 }
 
-header#header .header-left-mb .help-icon, header#header .header-right-mb .acc-icon {
+header#header .header-left-mb .help-icon,
+header#header .header-right-mb .acc-icon {
     font-size: 30px;
 }
 
-header#header .header-left .help-icon, header#header .header-right .acc-icon,
-    header#header .header-left .whatsapp-icon {
+header#header .header-left .help-icon,
+header#header .header-right .acc-icon,
+header#header .header-left .whatsapp-icon {
     font-size: 30px;
     margin-right: 5px;
 }
@@ -189,11 +197,11 @@ header#header .h-box-left div {
 }
 
 .semesters ul.semester-list li:first-child {
-        border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 0 0;
 }
 
 .semesters ul.semester-list li:last-child {
-        border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
 }
 
 .semesters ul.semester-list li:hover {
@@ -203,21 +211,20 @@ header#header .h-box-left div {
 
 /* BOLSA */
 
-.bolsas {
-    
-}
+.bolsas {}
 
 
 .bolsa {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 500px;
-  margin: 0 auto;
-  margin-top: 50px;
-  padding: 0 60px;
-  box-shadow: 0px 1px 5px 0px;;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 0 60px;
+    box-shadow: 0px 1px 5px 0px;
+    ;
+    text-align: center;
 }
 
 .add-bolsa .plus-icon {
@@ -230,12 +237,33 @@ header#header .h-box-left div {
     line-height: 26px;
 }
 
-
-.bolsas .curso-img img {
-  display: block;
-  width: 100%;
+.curso-img {
+    height: 40px;
 }
 
+.bolsas .curso-img img {
+    display: block;
+    margin: 0 auto;
+    /*    width: 100%;*/
+    height: 100%;
+}
+
+.bolsa-score {
+    color: orange;
+}
+
+.bolsa-description {
+    height: 40px;
+}
+
+.bolsa .options button {
+    background: #fff;
+    background: #fff;
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    border: solid 1px;
+}
 
 
 /* FOOTER */
@@ -246,7 +274,9 @@ footer {
     margin-top: 40px;
 }
 
-footer .chat, footer .email, footer .help {
+footer .chat,
+footer .email,
+footer .help {
     text-align: center;
     padding: 40px;
     font-size: 18px;
@@ -259,7 +289,10 @@ footer .email {
     border-style: solid;
 }
 
-footer .chat, footer .email, footer .help, footer .f-icon {
+footer .chat,
+footer .email,
+footer .help,
+footer .f-icon {
     font-size: 15px;
 }
 
@@ -276,92 +309,110 @@ footer .f-end {
 /* MODAL FORM*/
 
 form.form-bolsa {
-  margin-top: 40px;
+    margin-top: 40px;
 }
 
 .hz-form .input {
-  flex: 1;
-  max-width: 48%;
+    flex: 1;
+    max-width: 48%;
 }
 
 form .form-group {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 form select {
-  background-color: #fff;
-  width: -webkit-fill-available;
-  height: 40px;
-  border-radius: 5px;
+    background-color: #fff;
+    width: -webkit-fill-available;
+    height: 40px;
+    border-radius: 5px;
 }
 
 form input[type='range'] {
-  width: -webkit-fill-available;
+    width: -webkit-fill-available;
 }
 
 /* MODAL - RESULTADOS */
 
 .results .result {
-  border-top: solid 2px gray;
-  padding: 30px 0;
+    border-top: solid 2px gray;
+    padding: 30px 0;
 }
 
 .results .result img {
-  width: 70%;
-  margin: 0 auto;
+    width: 70%;
+    margin: 0 auto;
 }
 
 form.form-bolsa .filter {
-  line-height: 25px;
+    line-height: 25px;
 }
 
 .list-header {
-  padding: 10px 0;
+    padding: 10px 0;
 }
 
 /* INPUT RANGE*/
 
 .slidecontainer {
-  width: 100%; /* Width of the outside container */
+    width: 100%;
+    /* Width of the outside container */
 }
 
 /* The slider itself */
 .slider {
-  -webkit-appearance: none;  /* Override default CSS styles */
-  appearance: none;
-  width: 100%; /* Full-width */
-  height: 5px; /* Specified height */
-  background: #d3d3d3; /* Grey background */
-  outline: none; /* Remove outline */
-  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-  transition: opacity .2s;
+    -webkit-appearance: none;
+    /* Override default CSS styles */
+    appearance: none;
+    width: 100%;
+    /* Full-width */
+    height: 5px;
+    /* Specified height */
+    background: #d3d3d3;
+    /* Grey background */
+    outline: none;
+    /* Remove outline */
+    opacity: 0.7;
+    /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s;
+    /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
 }
 
 /* Mouse-over effects */
 .slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
+    opacity: 1;
+    /* Fully shown on mouse-over */
 }
 
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  border-radius: 50%;
-  background: #fff; /* Green background */
-  border: solid 3px #4CAF50;
-  cursor: pointer; /* Cursor on hover */
+    -webkit-appearance: none;
+    /* Override default look */
+    appearance: none;
+    width: 25px;
+    /* Set a specific slider handle width */
+    height: 25px;
+    /* Slider handle height */
+    border-radius: 50%;
+    background: #fff;
+    /* Green background */
+    border: solid 3px #4CAF50;
+    cursor: pointer;
+    /* Cursor on hover */
 }
 
 .slider::-moz-range-thumb {
-  width: 25px; /* Set a specific slider handle width */
-  height: 25px; /* Slider handle height */
-  border-radius: 50%;
-  background: #4CAF50; /* Green background */
-  border: solid 3px #4CAF50;
-  cursor: pointer; /* Cursor on hover */
+    width: 25px;
+    /* Set a specific slider handle width */
+    height: 25px;
+    /* Slider handle height */
+    border-radius: 50%;
+    background: #4CAF50;
+    /* Green background */
+    border: solid 3px #4CAF50;
+    cursor: pointer;
+    /* Cursor on hover */
 }
 
 
@@ -369,39 +420,49 @@ form.form-bolsa .filter {
 
 /* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
-  margin: 5% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%; /* Could be more or less, depending on screen size */
-  min-width: 500px;
+    background-color: #fefefe;
+    margin: 5% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    /* Could be more or less, depending on screen size */
+    min-width: 500px;
 }
 
 /* The Close Button */
 .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }

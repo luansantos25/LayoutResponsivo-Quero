@@ -7,9 +7,10 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css" />
-    <link rel="stylesheet" href="css/my-grid.css" />    
-<!--    <link rel="stylesheet" href="assets/font-awesome/css/all.css">  -->
+    <link rel="stylesheet" href="css/my-grid.css" />
+    <!--    <link rel="stylesheet" href="assets/font-awesome/css/all.css">  -->
 </head>
+
 <body>
     <header id="header" class="container d-flex justify-content-space-between">
         <div class="h-box-left d-flex">
@@ -24,7 +25,7 @@
             <div class="header-left d-flex d-md-none align-items-center justify-content-center border">
                 <i class="fab fa-whatsapp whatsapp-icon"></i>
                 <div>0800 123 2222<br />
-                Envie mensagem ou ligue</div>
+                    Envie mensagem ou ligue</div>
             </div>
         </div>
         <div class="header-center">
@@ -61,60 +62,63 @@
             <h1>Bolsas Favoritas</h1>
             <h3>Adicione bolsas de cursos e faculdades do seu interesse e receba atualizações com as melhores ofertas disponíveis.</h3>
         </div>
-        
+
         <div class="semesters">
             <ul class="semester-list">
                 <li>Todos os semestres</li>
                 <li>2º Semestre</li>
                 <li>1º Semestre</li>
             </ul>
-        </div>            
+        </div>
 
         <div id="bolsas" class="bolsas d-flex row">
             <div class="col-xs-4 col-lg-3 col-md-2 col-sm-12">
                 <div id="myBtn" class="bolsa add-bolsa flex-item">
                     <i class="fas fa-plus-circle plus-icon"></i>
                     <div class="text">
-                    <h1>Adicionar bolsa</h1>
+                        <h1>Adicionar bolsa</h1>
                         <p>Clique para adicionar bolsas de cursos do seu interesse</p>
                     </div>
-                </div>            
+                </div>
             </div>
             <div class="col-xs-4 col-lg-3 col-md-2 col-sm-12">
                 <div class="bolsa flex-item">
                     <div class="curso-img">
-                        <img src="img/quero-bolsa.png">
-                    </div>                    
+                        <img class="bolsa-img" src="https://www.tryimg.com/u/2019/04/16/unip.png">
+                    </div>
                     <div class="text">
-                        <h3 id="bolsa-title">Anhanguera</h3>
-                        <h3 id="bolsa-description">Arquitetura e Urbanismo</h3>                    
-                        <p>Avaliação
+                        <h3 class="bolsa-title">Anhanguera</h3>
+                        <h3 class="bolsa-description">Engenharia da Computação</h3>
+                        <p class="bolsa-score">
+                            <i class="fas fa-star bolsa-score"></i>
+                            <i class="fas fa-star bolsa-score"></i>
+                            <i class="fas fa-star bolsa-score"></i>
+                            <i class="fas fa-star bolsa-score"></i>
+                            <i class="fas fa-star bolsa-score"></i>
                         </p>
                     </div>
                     <div>
-                        <h3 id="bolsa-tipo">Presencial - Noite</h3>
-                        <p>Início das aulas em: 05/07/2019</p>
+                        <h3 class="bolsa-tipo">Presencial - Noite</h3>
+                        <p>Início das aulas em: <span class="bolsa-inicio">10/10/2010</span></p>
                     </div>
                     <div>
                         <p>Mensalidade com o Quero Bolsa:</p>
-                        <h2 id="mensalidade">R$ 453,63 <span>/mês</span></h2>
+                        <h2><span class="bolsa-preco">499,00</span> <span>/mês</span></h2>
                     </div>
                     <div class="options">
                         <button>Excluir</button>
                         <button>Ver Oferta</button>
                     </div>
-                </div>            
-            </div>            
-           
+                </div>
+            </div>
         </div>
-        
     </div>
 
     <footer>
         <div class="f-top d-none d-md-flex align-items-center justify-content-center">
             <i class="fab fa-whatsapp whatsapp-icon"></i>
             <div>0800 123 2222<br />
-            Segunda a sexta de 8h às 22h</div>
+                Segunda a sexta de 8h às 22h</div>
         </div>
 
 
@@ -143,7 +147,7 @@
             <div class="d-flex flex-1 align-items-center justify-content-center">
                 <i class="fab fa-whatsapp whatsapp-icon f-icon"></i>
                 <div>0800 123 2222<br />
-                Seg - Sex 8h-22h</div>
+                    Seg - Sex 8h-22h</div>
             </div>
             <div class="d-flex flex-1 align-items-center justify-content-center">
                 <i class="far fa-comments f-icon"></i>
@@ -172,131 +176,127 @@
     <!-- The Modal -->
     <div id="myModal" class="modal">
 
-      <!-- Modal content -->
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Adicionar bolsa</h2>
-        <p>Filtre e adicione as bolsas de seu interesse</p>
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Adicionar bolsa</h2>
+            <p>Filtre e adicione as bolsas de seu interesse</p>
 
-        <form class="hz-form form-bolsa">
-            <div class="form-group d-flex justify-content-space-between">
-                <div class="input">
-                    <label>Cidade</label>
-                    <select>
-                        <option>Cidade</option>
-                    </select>
+            <form class="hz-form form-bolsa">
+                <div class="form-group d-flex justify-content-space-between">
+                    <div class="input">
+                        <label>Cidade</label>
+                        <select>
+                            <option>Cidade</option>
+                        </select>
+                    </div>
+                    <div class="input">
+                        <label>Selecione o curso de sua preferência</label>
+                        <select>
+                            <option>Cidade</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="input">
-                    <label>Selecione o curso de sua preferência</label>
-                    <select>
-                        <option>Cidade</option>
-                    </select>
+
+                <div class="filter form-group d-flex justify-content-space-between">
+                    <div class="input">
+                        <h4>Como você pretende estudar?</h4>
+                        <br>
+                        <input type="checkbox" name="">
+                        <label>Presencial</label>
+                        <input type="checkbox" name="">
+                        <label>A distância</label>
+                    </div>
+                    <div class="input">
+                        <h4>Até quanto pode pagar?</h4>
+                        <p>R$10.000</p>
+                        <input type="range" class="slider" name="points" min="0" max="10">
+                    </div>
                 </div>
+            </form>
+
+            <div class="list-header d-flex justify-content-space-between">
+                <h4>Resultado</h4>
+                <h4>Ordenar por <span>Nome da Faculdade<i class="fas fa-caret-down" style="margin-left: 5px"></i></span></h4>
             </div>
-
-            <div class="filter form-group d-flex justify-content-space-between">
-                <div class="input">
-                    <h4>Como você pretende estudar?</h4>
-                    <br>
-                    <input type="checkbox" name="">
-                    <label>Presencial</label>
-                    <input type="checkbox" name="">
-                    <label>A distância</label>
-                </div>
-                <div class="input">
-                    <h4>Até quanto pode pagar?</h4>
-                    <p>R$10.000</p>
-                    <input type="range" class="slider" name="points" min="0" max="10">
-                </div>
-            </div>
-        </form>
-
-        <div class="list-header d-flex justify-content-space-between">
-            <h4>Resultado</h4>
-            <h4>Ordenar por <span>Nome da Faculdade<i class="fas fa-caret-down" style="margin-left: 5px"></i></span></h4>
-        </div>
-        <div class="results">
-            <div class="result d-flex align-items-center">
-                <div class="option d-flex flex-1 align-items-center">
-                    <input type="checkbox" name="">
-                    <img src="img/quero-bolsa.png">
-                </div>
-                <div class="description flex-3">
-                    <div class="d-flex justify-content-space-between">
-                        <div class="info">
-                            <h4>Administração</h4>
-                            <p>Bacharelado</p>
-                        </div>
-                        <div class="values">
-                            <p>Bolsa de</p>
-                            <p>R$ 374,00 /mês</p>
+            <div class="results">
+                <div class="result d-flex align-items-center">
+                    <div class="option d-flex flex-1 align-items-center">
+                        <input type="checkbox" name="">
+                        <img src="img/quero-bolsa.png">
+                    </div>
+                    <div class="description flex-3">
+                        <div class="d-flex justify-content-space-between">
+                            <div class="info">
+                                <h4>Administração</h4>
+                                <p>Bacharelado</p>
+                            </div>
+                            <div class="values">
+                                <p>Bolsa de</p>
+                                <p>R$ 374,00 /mês</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div> 
-            <div class="result d-flex align-items-center">
-                <div class="option d-flex flex-1 align-items-center">
-                    <input type="checkbox" name="">
-                    <img src="img/quero-bolsa.png">
-                </div>
-                <div class="description flex-3">
-                    <div class="d-flex justify-content-space-between">
-                        <div class="info">
-                            <h4>Administração</h4>
-                            <p>Bacharelado</p>
-                        </div>
-                        <div class="values">
-                            <p>Bolsa de</p>
-                            <p>R$ 374,00 /mês</p>
+                <div class="result d-flex align-items-center">
+                    <div class="option d-flex flex-1 align-items-center">
+                        <input type="checkbox" name="">
+                        <img src="img/quero-bolsa.png">
+                    </div>
+                    <div class="description flex-3">
+                        <div class="d-flex justify-content-space-between">
+                            <div class="info">
+                                <h4>Administração</h4>
+                                <p>Bacharelado</p>
+                            </div>
+                            <div class="values">
+                                <p>Bolsa de</p>
+                                <p>R$ 374,00 /mês</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div> 
-            <div>
-                <button>Cancelar</button>
-                <button>Adicionar bolsas</button>
-            </div>                    
-        </div>
+                <div>
+                    <button>Cancelar</button>
+                    <button>Adicionar bolsas</button>
+                </div>
+            </div>
 
-      </div>
+        </div>
 
     </div>
 
-
-
-<!--    <script type="application/javascript" src="assets/font-awesome/js/all.js"></script>-->
+    <!--    <script type="application/javascript" src="assets/font-awesome/js/all.js"></script>-->
     <script src="https://kit.fontawesome.com/70b4df623f.js" crossorigin="anonymous"></script>
 
-<script type="text/javascript">
-    
-// Get the modal
-var modal = document.getElementById("myModal");
+    <script type="text/javascript">
+        // Get the modal
+        var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
 
-
-var curso = 
+        var curso =
             `<div class="col-xs-4 col-lg-3 col-md-2 col-sm-12">
                 <div class="bolsa flex-item">
                     <div class="curso-img">
@@ -304,8 +304,8 @@ var curso =
                     </div>                    
                     <div class="text">
                         <h3 class="bolsa-title">Anhanguera</h3>
-                        <h3 class="bolsa-description"></h3>                    
-                        <p class="bolsa-score">Avaliação
+                        <h3 class="bolsa-description"></h3>             
+                        <p class="bolsa-score">
                         </p>
                     </div>
                     <div>
@@ -322,79 +322,89 @@ var curso =
                     </div>
                 </div>
             </div>`;
-    
-star = '<i class="fas fa-star"></i>';
-var harf_star = '<i class="fas fa-star-half-alt"></i>';
+
+        var star = '<i class="fas fa-star bolsa-score"></i>';
+        var half_star = '<i class="fas fa-star-half-alt bolsa-score"></i>';
+        var blank_star = '<i class="far fa-star"></i>';
+
+        const URL_TO_FETCH = 'https://testapi.io/api/redealumni/scholarships';
+
+        fetch(URL_TO_FETCH, {
+                method: 'get' // opcional 
+            })
+            .then(response => response.json()) // retorna uma promise
+            .then(result => {
+                console.log(result);
+                populateCourses(result);
+
+            })
+            .catch(err => {
+                console.error('Failed retrieving information', err);
+            });
+
+        function populateCourses(courses) {
+
+            var coursesElm = document.getElementById("bolsas");
+
+            flag = 1;
+
+            courses.forEach(function(course) {
+
+                if (flag == 1) {
+                    var elm = htmlToElement(curso);
+                    //elm.getElementsByTagName('h3')[0].textContent = course.course.name;
+                    elm.getElementsByClassName('bolsa-title')[0].textContent = course.university.name;
+
+                    elm.getElementsByClassName('bolsa-description')[0].textContent = course.course.name;
+                    elm.getElementsByClassName('bolsa-img')[0].src = course.university.logo_url;
+                    elm.getElementsByClassName('bolsa-inicio')[0].textContent = course.start_date;
+                    elm.getElementsByClassName('bolsa-preco')[0].textContent = course.price_with_discount;
+                    //.append( setScoreElm(course.university.score));
+                    setScoreElm(elm.getElementsByClassName('bolsa-score')[0], course.university.score);
+                    coursesElm.append(elm);
+
+                    //flag = 0;
+                }
+
+            });
+        }
+
+        function htmlToElement(html) {
+            var template = document.createElement('template');
+            html = html.trim(); // Never return a text node of whitespace as the result
+            template.innerHTML = html;
+            return template.content.firstChild;
+        }
+
+        function htmlToElements(html) {
+            var template = document.createElement('template');
+            template.innerHTML = html;
+            return template.content.childNodes;
+        }
+
+        function setScoreElm(elm, score) {
+
+            for (i = 1; i < 6; i++) {
+
+                if (Math.floor(score) > i - 1) {
+                    elm.append(htmlToElement(star));
+                } else if (Math.floor(score) == i - 1) {
+                    console.log("score == score");
+                    if (score - Math.floor(score) > .5) {
+                        elm.append(htmlToElement(half_star));
+                    } else {
+                        elm.append(htmlToElement(blank_star));
+                    }
+                } else {
+                    elm.append(htmlToElement(blank_star));
+                }
+
+            }
+
+            //console.log(stars);
 
 
-const URL_TO_FETCH = 'https://testapi.io/api/redealumni/scholarships';
 
-fetch(URL_TO_FETCH,{
-    method: 'get' // opcional 
-    })
-  .then(response => response.json()) // retorna uma promise
-  .then(result => {
-    console.log(result);
-
-    populateCourses(result);
-
-  })
-  .catch(err => {
-  // trata se alguma das promises falhar
-  console.error('Failed retrieving information', err);
-});
-
-function populateCourses(courses) {
-
-    var coursesElm = document.getElementById("bolsas");
-
-    courses.forEach(function(course) {
-        console.log(course);
-
-        var elm = htmlToElement(curso);
-        //elm.getElementsByTagName('h3')[0].textContent = course.course.name;
-        elm.getElementsByClassName('bolsa-title')[0].textContent = course.university.name;
-
-    elm.getElementsByClassName('bolsa-description')[0].textContent = course.course.name;   
-    elm.getElementsByClassName('bolsa-img')[0].src = course.university.logo_url;
-    elm.getElementsByClassName('bolsa-inicio')[0].textContent = course.start_date;
-    elm.getElementsByClassName('bolsa-preco')[0].textContent = course.price_with_discount;
-    //.append( setScoreElm(course.university.score));
-    setScoreElm(elm.getElementsByClassName('bolsa-score')[0], course.university.score);
-    coursesElm.append(elm);
-        
-        
-    });
-}
-
-function htmlToElement(html) {
-    var template = document.createElement('template');
-    html = html.trim(); // Never return a text node of whitespace as the result
-    template.innerHTML = html;
-    return template.content.firstChild;
-}
-    
-function htmlToElements(html) {
-    var template = document.createElement('template');
-    template.innerHTML = html;
-    return template.content.childNodes;
-}    
-    
-function setScoreElm(elm, score) {
-    
-    count = 0;
-    
-    while(count < score) {
-        elm.append(htmlToElement(star))
-        count++;                
-    }
-    
-    //console.log(stars);
-    
-   
-    
-}
-
-</script>    
-</body>
-</html>
+        }
+    </script>
+</body></html>
