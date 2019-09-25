@@ -1,10 +1,21 @@
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { ... }
+@media (min-width: 576px) { 
+
+/* FOOTER */
+
+footer .chat, footer .email, footer .help {
+    font-size: 25px;
+}
+
+footer .f-icon {
+    font-size: 45px;
+}
+
+}
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
 
-/* HEADER */
 
 
 }
@@ -29,7 +40,8 @@
 /* BOLSAS */
 
 .add-bolsa {
-    width: 200px;
+    /*width: 200px;*/
+    width: 154px;
     height: 400px;
 }
 
@@ -53,7 +65,10 @@ footer .f-icon {
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { ... }
+@media (min-width: 1200px) { 
+
+
+}
 
 
 
