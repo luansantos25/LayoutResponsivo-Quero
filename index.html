@@ -72,7 +72,7 @@
 
         <div id="bolsas" class="bolsas d-flex row">
             <div class="col-xs-4 col-lg-3 col-md-2 col-sm-12">
-                <div id="myBtn" class="add-bolsa flex-item">
+                <div id="myBtn" class="bolsa add-bolsa flex-item">
                     <i class="fas fa-plus-circle plus-icon"></i>
                     <div class="text">
                     <h1>Adicionar bolsa</h1>
@@ -81,38 +81,27 @@
                 </div>            
             </div>
             <div class="col-xs-4 col-lg-3 col-md-2 col-sm-12">
-                <div id="myBtn" class="add-bolsa flex-item">
-                    <i class="fas fa-plus-circle plus-icon"></i>
+                <div class="bolsa flex-item">
+                    <div class="curso-img">
+                        <img src="img/quero-bolsa.png">
+                    </div>                    
                     <div class="text">
-                    <h1>Adicionar bolsa</h1>
-                        <p>Clique para adicionar bolsas de cursos do seu interesse</p>
+                        <h3 id="bolsa-title">Anhanguera</h3>
+                        <h3 id="bolsa-description">Arquitetura e Urbanismo</h3>                    
+                        <p>Avaliação
+                        </p>
                     </div>
-                </div>            
-            </div>
-            <div class="col-xs-4 col-lg-3 col-md-2 col-sm-12">
-                <div id="myBtn" class="add-bolsa flex-item">
-                    <i class="fas fa-plus-circle plus-icon"></i>
-                    <div class="text">
-                    <h1>Adicionar bolsa</h1>
-                        <p>Clique para adicionar bolsas de cursos do seu interesse</p>
+                    <div>
+                        <h3 id="bolsa-tipo">Presencial - Noite</h3>
+                        <p>Início das aulas em: 05/07/2019</p>
                     </div>
-                </div>            
-            </div>
-            <div class="col-xs-4 col-lg-3 col-md-2 col-sm-12">
-                <div id="myBtn" class="add-bolsa flex-item">
-                    <i class="fas fa-plus-circle plus-icon"></i>
-                    <div class="text">
-                    <h1>Adicionar bolsa</h1>
-                        <p>Clique para adicionar bolsas de cursos do seu interesse</p>
+                    <div>
+                        <p>Mensalidade com o Quero Bolsa:</p>
+                        <h2 id="mensalidade">R$ 453,63 <span>/mês</span></h2>
                     </div>
-                </div>            
-            </div>
-            <div class="col-xs-4 col-lg-3 col-md-2 col-sm-12">
-                <div id="myBtn" class="add-bolsa flex-item">
-                    <i class="fas fa-plus-circle plus-icon"></i>
-                    <div class="text">
-                    <h1>Adicionar bolsa</h1>
-                        <p>Clique para adicionar bolsas de cursos do seu interesse</p>
+                    <div class="options">
+                        <button>Excluir</button>
+                        <button>Ver Oferta</button>
                     </div>
                 </div>            
             </div>            
@@ -309,16 +298,30 @@ window.onclick = function(event) {
 
 var curso = 
             `<div class="col-xs-4 col-lg-3 col-md-2 col-sm-12">
-                <div id="myBtn" class="add-bolsa flex-item">
-                    <i class="fas fa-plus-circle plus-icon"></i>
+                <div class="bolsa flex-item">
+                    <div class="curso-img">
+                        <img class="bolsa-img" src="img/quero-bolsa.png">
+                    </div>                    
                     <div class="text">
-                    <h1>Adicionar bolsa</h1>
-                        <p>Clique para adicionar bolsas de cursos do seu interesse</p>
+                        <h3 class="bolsa-title">Anhanguera</h3>
+                        <h3 class="bolsa-description"></h3>                    
+                        <p>Avaliação
+                        </p>
                     </div>
-                </div>            
+                    <div>
+                        <h3 class="bolsa-tipo">Presencial - Noite</h3>
+                        <p>Início das aulas em: <span class="bolsa-inicio"></span></p>
+                    </div>
+                    <div>
+                        <p>Mensalidade com o Quero Bolsa:</p>
+                        <h2><span class="bolsa-preco"></span> <span>/mês</span></h2>
+                    </div>
+                    <div class="options">
+                        <button>Excluir</button>
+                        <button>Ver Oferta</button>
+                    </div>
+                </div>
             </div>`;
-
-
 
 
 const URL_TO_FETCH = 'https://testapi.io/api/redealumni/scholarships';
@@ -346,7 +349,15 @@ function populateCourses(courses) {
         console.log(course);
 
         var elm = htmlToElement(curso);
-        elm.getElementsByTagName('h1')[0].textContent = course.course.name;
+        //elm.getElementsByTagName('h3')[0].textContent = course.course.name;
+        elm.getElementsByClassName('bolsa-title')[0].textContent = course.university.name;
+
+    elm.getElementsByClassName('bolsa-description')[0].textContent = course.course.name;        
+
+    elm.getElementsByClassName('bolsa-img')[0].src = course.university.logo_url;
+    elm.getElementsByClassName('bolsa-inicio')[0].textContent = course.start_date;
+    elm.getElementsByClassName('bolsa-preco')[0].textContent = course.price_with_discount;
+
         coursesElm.append(elm);
     });
 }
