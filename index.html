@@ -305,7 +305,7 @@ var curso =
                     <div class="text">
                         <h3 class="bolsa-title">Anhanguera</h3>
                         <h3 class="bolsa-description"></h3>                    
-                        <p>Avaliação
+                        <p class="bolsa-score">Avaliação
                         </p>
                     </div>
                     <div>
@@ -322,6 +322,9 @@ var curso =
                     </div>
                 </div>
             </div>`;
+    
+star = '<i class="fas fa-star"></i>';
+var harf_star = '<i class="fas fa-star-half-alt"></i>';
 
 
 const URL_TO_FETCH = 'https://testapi.io/api/redealumni/scholarships';
@@ -352,13 +355,15 @@ function populateCourses(courses) {
         //elm.getElementsByTagName('h3')[0].textContent = course.course.name;
         elm.getElementsByClassName('bolsa-title')[0].textContent = course.university.name;
 
-    elm.getElementsByClassName('bolsa-description')[0].textContent = course.course.name;        
-
+    elm.getElementsByClassName('bolsa-description')[0].textContent = course.course.name;   
     elm.getElementsByClassName('bolsa-img')[0].src = course.university.logo_url;
     elm.getElementsByClassName('bolsa-inicio')[0].textContent = course.start_date;
     elm.getElementsByClassName('bolsa-preco')[0].textContent = course.price_with_discount;
-
-        coursesElm.append(elm);
+    //.append( setScoreElm(course.university.score));
+    setScoreElm(elm.getElementsByClassName('bolsa-score')[0], course.university.score);
+    coursesElm.append(elm);
+        
+        
     });
 }
 
@@ -367,6 +372,27 @@ function htmlToElement(html) {
     html = html.trim(); // Never return a text node of whitespace as the result
     template.innerHTML = html;
     return template.content.firstChild;
+}
+    
+function htmlToElements(html) {
+    var template = document.createElement('template');
+    template.innerHTML = html;
+    return template.content.childNodes;
+}    
+    
+function setScoreElm(elm, score) {
+    
+    count = 0;
+    
+    while(count < score) {
+        elm.append(htmlToElement(star))
+        count++;                
+    }
+    
+    //console.log(stars);
+    
+   
+    
 }
 
 </script>    
