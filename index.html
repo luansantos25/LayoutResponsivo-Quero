@@ -179,7 +179,7 @@
 
 
     <!-- The Modal -->
-    <div id="myModal" class="modal">
+    <div id="adicionar-bolsa-modal" class="modal">
 
         <!-- Modal content -->
         <div class="modal-content">
@@ -244,9 +244,9 @@
                     </div>
                 </div>
             </div>
-            <div>
-                <button>Cancelar</button>
-                <button>Adicionar bolsas</button>
+            <div class="options">
+                <button class="btn-delete">Cancelar</button>
+                <button id="btn-add-bolsas" class="btn-see-offer">Adicionar bolsas</button>
             </div>
 
         </div>
@@ -272,6 +272,9 @@
     var distance_filter = document.getElementById("filter-distance");
     distance_filter.addEventListener("change", function(evt){filter(evt, "distance")}, false);
 
+    var btn_add_bolsas = document.getElementById("btn-add-bolsas");
+    btn_add_bolsas.addEventListener("click", function(evt){confirmAddBolsas()}, false);    
+
     var order_filter = document.getElementById("filter-order");
     order_filter.addEventListener("click", function(evt){orderByUniversityName()}, false);
 
@@ -292,6 +295,7 @@
 
     function filter() {
         console.log('filter go go');
+        selected_courses = [];
 
         selected_city = city_filter.options[city_filter.selectedIndex].value;
         selected_course = course_filter.options[course_filter.selectedIndex].value;
@@ -355,12 +359,36 @@
         populateCoursesList(courses_filtered);
     }
 
+    function confirmAddBolsas() {
+        console.log("CONFIRMANDO", selected_courses);
+
+        // selected_courses = selected_courses.map(function(elm) {
+        //         return elm.data;
+        //     })
+
+        localStorageData(selected_courses, "my-courses");
+
+        populateCourses(selected_courses);
+
+
+    }
+
+    function localStorageData(data, name) {
+        if(!localStorage.getItem(name)) {
+            localStorage.setItem(name, JSON.stringify(data));
+        } else {
+            var course_obj = JSON.parse(localStorage.getItem(name));
+            course_obj = course_obj.concat(data);
+            localStorage.setItem(name, JSON.stringify(course_obj));
+        }
+    }
+
     </script>
 
 
     <script type="text/javascript">
         // Get the modal
-        var modal = document.getElementById("myModal");
+        var modal = document.getElementById("adicionar-bolsa-modal");
 
         // Get the button that opens the modal
         var btn = document.getElementById("myBtn");
@@ -388,7 +416,7 @@
         var curso_list =
         `<div class="result d-flex align-items-center">
             <div class="option d-flex flex-1 align-items-center">
-                <input type="checkbox" name="">
+                <input class="bolsa-check-list" type="checkbox" name="" data-additional-id="">
                 <img class="bolsa-img-list" src="img/quero-bolsa.png">
             </div>
             <div class="description flex-3">
@@ -450,13 +478,20 @@
             })
             .then(response => response.json()) // retorna uma promise
             .then(result => {
-                console.log(result);
 
                 courses_data = result;
                 courses_filtered = courses_data;
+
+                result.forEach(function(item, i) {
+                    item.id = i;
+                })
+
+                console.log(result);
+
+
                 initializeCityFilter(result);
                 initializeCoursesFilter(result) ;
-                populateCourses(result);
+                //populateCourses(result);
                 populateCoursesList(result);
 
             })
@@ -467,6 +502,7 @@
         function populateCourses(courses) {
 
             var coursesElm = document.getElementById("bolsas");
+            //coursesElm.innerHTML = "";
 
             flag = 1;
 
@@ -475,6 +511,7 @@
                 if (flag == 1) {
                     var elm = htmlToElement(curso);
                     //elm.getElementsByTagName('h3')[0].textContent = course.course.name;
+
                     elm.getElementsByClassName('bolsa-title')[0].textContent = course.university.name;
 
                     elm.getElementsByClassName('bolsa-description')[0].textContent = course.course.name;
@@ -501,15 +538,23 @@
 
             flag = 1;
 
-            courses.forEach(function(course) {
+            courses.forEach(function(course, i) {
 
                 if (flag == 1) {
+
                     var elm = htmlToElement(curso_list);
+
                     elm.getElementsByClassName('bolsa-title-list')[0].textContent = course.course.name;
+                    elm.getElementsByClassName('bolsa-check-list')[0].dataset.additionalId = course.id;                    
                     elm.getElementsByClassName('bolsa-level-list')[0].textContent = course.course.level;
                     elm.getElementsByClassName('bolsa-disc-list')[0].textContent = course.discount_percentage + "%";
                     elm.getElementsByClassName('bolsa-value-list')[0].textContent = Math.floor(course.price_with_discount);
                     elm.getElementsByClassName('bolsa-img-list')[0].src = course.university.logo_url;
+
+                    elm.addEventListener("click", function(evt) {
+                                  addBolsas(evt);
+                                  console.log("CALL");
+                    });
 
                     coursesListElm.append(elm);
 
@@ -518,6 +563,28 @@
 
             });
         }
+
+        /* ADICIONAR BOLSAS */
+        var selected_courses = [];
+        function addBolsas(evt) {
+            console.log("ADD BOLSAS CALL");
+
+            var operation = evt.target.checked;
+            var bolsa_id = evt.target.dataset.additionalId;
+
+            console.log(evt.target.dataset.additionalId);
+            console.log(evt.target.checked);
+
+            if(operation) {
+                console.log(courses_data[bolsa_id]);
+                selected_courses.push(courses_data[bolsa_id]);
+            } else {
+                selected_courses = selected_courses.filter(function(el) { return el.id != bolsa_id; })
+            }
+
+            console.log("SELECTED ", selected_courses);
+
+        }        
 
         function initializeCityFilter(itens) {
             var x = document.getElementById("filter-city");
@@ -556,6 +623,12 @@
                 x.add(option);
             })
         }
+
+        (function initializeMyCourses() {
+            if(courses_local = localStorage.getItem("my-courses")) {
+                populateCourses(JSON.parse(courses_local));
+            }
+        })();
 
 
         function htmlToElement(html) {
@@ -596,4 +669,8 @@
 
         }
     </script>
+
+
+
+
 </body></html>

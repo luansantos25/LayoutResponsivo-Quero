@@ -86,6 +86,28 @@ h4 {
     margin: 0 auto;
 }
 
+/* BUTTONS */
+
+button {
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    border: solid 1px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+button.btn-delete {
+  background-color: #fff;
+    color: #18ACC4;
+}
+
+button.btn-see-offer {
+    background-color: #FDCB13;
+    width: 120px;
+    border: none;
+}
+
 /* HEADER */
 
 header#header {
@@ -304,26 +326,7 @@ header#header .h-box-left div {
     height: 40px;
 }
 
-.bolsa .options button {
-    background: #fff;
-    background: #fff;
-    width: 100px;
-    height: 35px;
-    border-radius: 5px;
-    border: solid 1px;
-    font-weight: 600;
-    font-size: 16px;
-}
 
-.bolsa .options button.btn-delete {
-    color: #18ACC4;
-}
-
-.bolsa .options button.btn-see-offer {
-    background-color: #FDCB13;
-    width: 120px;
-    border: none;
-}
 /* FOOTER */
 
 footer {
@@ -480,6 +483,14 @@ form.form-bolsa .filter {
     border: solid 3px #4CAF50;
     cursor: pointer;
     /* Cursor on hover */
+}
+
+#adicionar-bolsa-modal form.form-bolsa .options {
+  text-align: right;
+}
+
+#adicionar-bolsa-modal .options button.btn-see-offer {
+  width: 200px;
 }
 
 
