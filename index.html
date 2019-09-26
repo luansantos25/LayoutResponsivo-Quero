@@ -65,9 +65,9 @@
 
         <div class="semesters">
             <ul class="semester-list">
-                <li>Todos os semestres</li>
-                <li>2º Semestre</li>
-                <li>1º Semestre</li>
+                <li data-additional-sem="0">Todos os semestres</li>
+                <li data-additional-sem="1">2º Semestre</li>
+                <li data-additional-sem="2">1º Semestre</li>
             </ul>
         </div>
 
@@ -292,6 +292,14 @@
         output.innerHTML = slider_value;
       filter();
     }
+    
+    document.querySelectorAll("ul.semester-list li")
+        .forEach(function(elm) {
+            console.log(elm.dataset.additionalSem);
+            let semester = elm.dataset.additionalSem;
+            elm.addEventListener("click", function(evt){filterSemester(semester)}, false);
+        
+          })
 
     function filter() {
         console.log('filter go go');
@@ -403,14 +411,17 @@
 
     }
 
-    function filterSemester() {
+    function filterSemester(semester) {
 
         let courses = initializeMyCourses();
-        courses = courses.filter(function(el) { return el.enrollment_semester == "2019.2"; })
+        
+        if(semester == 0) {
+            populateCourses(courses);
+        } else {
+            courses = courses.filter(function(el) { return el.enrollment_semester == new Date().getFullYear() + "." + semester; })
+        }
+        
         console.log("SEMESTER", courses);
-
-        populateCourses(courses);
-
 
     }
 
@@ -532,7 +543,8 @@
 
         function populateCourses(courses) {
 
-            var coursesElm = document.getElementById("bolsas");
+            var coursesElm = document.getElementById("bolsa");
+            
             //coursesElm.innerHTML = "";
 
             flag = 1;
@@ -664,6 +676,8 @@
         function initializeMyCourses() {
             if(courses_local = localStorage.getItem("my-courses")) {
                 return JSON.parse(courses_local);
+            } else {
+                return [];
             }
         };
         filterSemester();
