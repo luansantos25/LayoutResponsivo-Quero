@@ -15,6 +15,7 @@ h3 {
 }
 
 p,
+h3,
 h4 {
     margin: 0;
     padding: 0;
@@ -179,6 +180,7 @@ header#header .h-box-left div {
 .semesters {
     overflow: auto;
     clear: both;
+    margin-top: 40px;
 }
 
 .semesters ul.semester-list {
@@ -221,10 +223,14 @@ header#header .h-box-left div {
     height: 500px;
     margin: 0 auto;
     margin-top: 50px;
-    padding: 0 60px;
+    padding: 0 20px;
     box-shadow: 0px 1px 5px 0px;
     ;
     text-align: center;
+}
+
+.add-bolsa {
+    justify-content: center;
 }
 
 .add-bolsa .plus-icon {
@@ -241,6 +247,16 @@ header#header .h-box-left div {
     height: 40px;
 }
 
+.bolsas .bolsa .bolsa-title {
+    text-transform: uppercase;
+    padding: 10px 0;
+}
+
+.bolsas .bolsa .bolsa-description {
+    color: #007A8D;
+    font-size: 18px;
+}
+
 .bolsas .curso-img img {
     display: block;
     margin: 0 auto;
@@ -248,8 +264,40 @@ header#header .h-box-left div {
     height: 100%;
 }
 
-.bolsa-score {
+.bolsas .bolsa-score .number {
+    font-weight: 700;
+    margin-right: 5px;
+    font-size: 18px;
+}
+
+.bolsas .bolsa-score .stars {
     color: orange;
+}
+
+.bolsas .box-type {
+    border-top: solid 4px #FBFBFB;
+    border-bottom: solid 4px #FBFBFB;
+    padding: 20px 0;
+}
+
+.bolsas .bolsa-tipo{
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.bolsas .box-monthly h4  {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.bolsas .box-monthly .bolsa-preco {
+    color: #0FA866;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.bolsas .box-monthly .bolsa-preco-total {
+    text-decoration: line-through;
 }
 
 .bolsa-description {
@@ -263,9 +311,19 @@ header#header .h-box-left div {
     height: 35px;
     border-radius: 5px;
     border: solid 1px;
+    font-weight: 600;
+    font-size: 16px;
 }
 
+.bolsa .options button.btn-delete {
+    color: #18ACC4;
+}
 
+.bolsa .options button.btn-see-offer {
+    background-color: #FDCB13;
+    width: 120px;
+    border: none;
+}
 /* FOOTER */
 
 footer {
@@ -350,6 +408,15 @@ form.form-bolsa .filter {
 
 .list-header {
     padding: 10px 0;
+}
+
+.bolsa-disc-list {
+
+}
+
+.bolsa-disc-list, .bolsa-value-all {
+    color: #0FA866;
+    font-weight: 600;
 }
 
 /* INPUT RANGE*/
