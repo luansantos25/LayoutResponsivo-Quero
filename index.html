@@ -339,6 +339,7 @@
         console.log(courses_filtered);
         populateCoursesList(courses_filtered);
 
+
     }
 
     function orderByUniversityName() {
@@ -373,6 +374,14 @@
 
     }
 
+    function rmBolsa(evt) {
+        console.log(evt.target.dataset.additionalId);
+        var id = evt.target.dataset.additionalId;
+
+        current_courses = localStorageRemove(id, "my-courses");
+        evt.target.parentElement.parentElement.parentElement.hidden = true;
+    }
+
     function localStorageData(data, name) {
         if(!localStorage.getItem(name)) {
             localStorage.setItem(name, JSON.stringify(data));
@@ -381,6 +390,28 @@
             course_obj = course_obj.concat(data);
             localStorage.setItem(name, JSON.stringify(course_obj));
         }
+    }
+
+    function localStorageRemove(id, name) {
+            var courses_obj = JSON.parse(localStorage.getItem(name));
+            courses_obj = courses_obj.filter(function(el) { return el.id != id; })
+
+            localStorage.removeItem(name);
+            localStorageData(courses_obj, name);
+
+            return courses_obj;
+
+    }
+
+    function filterSemester() {
+
+        let courses = initializeMyCourses();
+        console.log("SEMESTER", courses);
+        //courses = courses.filter(function(el) { return el.enrollment_semester != "2019.2"; })
+
+        populateCourses(courses);
+
+
     }
 
     </script>
@@ -459,7 +490,7 @@
                     <span>/mês</span>
                 </div>
                 <div class="options">
-                    <button class="btn-delete">Excluir</button>
+                    <button class="btn-delete btn-delete-bolsa" data-additional-id="">Excluir</button>
                     <button class="btn-see-offer">Ver Oferta</button>
                 </div>
             </div>
@@ -519,10 +550,16 @@
                     elm.getElementsByClassName('bolsa-inicio')[0].textContent = course.start_date;
                     elm.getElementsByClassName('bolsa-preco-total')[0].textContent = "R$ " + course.full_price;
                     elm.getElementsByClassName('bolsa-preco')[0].textContent = "R$ " + course.price_with_discount;
-                    //.append( setScoreElm(course.university.score));
+                    elm.getElementsByClassName('btn-delete-bolsa')[0].dataset.additionalId = course.id; 
                     elm.getElementsByClassName('number')[0].textContent = course.university.score;
                     setScoreElm(elm.getElementsByClassName('stars')[0], course.university.score);
                     coursesElm.append(elm);
+
+                    elm.getElementsByClassName('btn-delete-bolsa')[0].addEventListener("click", function(evt) {
+                                  rmBolsa(evt);
+                                  console.log("CALL REMOVE BOlsa");
+                    });
+
 
                     //flag = 0;
                 }
@@ -624,11 +661,13 @@
             })
         }
 
-        (function initializeMyCourses() {
+        function initializeMyCourses() {
             if(courses_local = localStorage.getItem("my-courses")) {
-                populateCourses(JSON.parse(courses_local));
+                return JSON.parse(courses_local);
             }
-        })();
+        };
+        filterSemester();
+
 
 
         function htmlToElement(html) {
