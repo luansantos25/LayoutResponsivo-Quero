@@ -406,8 +406,8 @@
     function filterSemester() {
 
         let courses = initializeMyCourses();
+        courses = courses.filter(function(el) { return el.enrollment_semester == "2019.2"; })
         console.log("SEMESTER", courses);
-        //courses = courses.filter(function(el) { return el.enrollment_semester != "2019.2"; })
 
         populateCourses(courses);
 
