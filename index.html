@@ -222,7 +222,7 @@
 
             <div class="list-header d-flex justify-content-space-between">
                 <h4>Resultados</h4>
-                <h4>Ordenar por <span>Nome da Faculdade<i class="fas fa-caret-down" style="margin-left: 5px"></i></span></h4>
+                <h4>Ordenar por <span id="filter-order">Nome da Faculdade<i class="fas fa-caret-down" style="margin-left: 5px"></i></span></h4>
             </div>
             <div class="results" id="course-list">
                 <div class="result d-flex align-items-center">
@@ -272,8 +272,14 @@
     var distance_filter = document.getElementById("filter-distance");
     distance_filter.addEventListener("change", function(evt){filter(evt, "distance")}, false);
 
+    var order_filter = document.getElementById("filter-order");
+    order_filter.addEventListener("click", function(evt){orderByUniversityName()}, false);
+
     var slider = document.getElementById("filter-price");
     var output = document.getElementById("slider-display");
+
+    var order_by_university_name = false;
+
     var slider_value = slider.value;
     output.innerHTML = slider_value;
 
@@ -329,6 +335,24 @@
         console.log(courses_filtered);
         populateCoursesList(courses_filtered);
 
+    }
+
+    function orderByUniversityName() {
+
+        var order_icon = order_filter.childNodes[1].classList;
+
+        if(!order_by_university_name) {
+            courses_filtered = courses_filtered.sort(function(a,b){ return a.university.name.localeCompare(b.university.name);})
+            order_icon.remove("fa-caret-down");
+            order_icon.add("fa-caret-up");
+            order_by_university_name = true;
+        } else {
+            courses_filtered = courses_filtered.sort(function(a,b){ return b.university.name.localeCompare(a.university.name);})
+            order_icon.remove("fa-caret-up");
+            order_icon.add("fa-caret-down");            
+            order_by_university_name = false;
+        }
+        populateCoursesList(courses_filtered);
     }
 
     </script>
