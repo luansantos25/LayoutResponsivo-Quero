@@ -233,6 +233,11 @@ header#header .h-box-left div {
     color: #fff;
 }
 
+.semester-active {
+    background-color: #007A8D;
+    color: #fff; 
+}
+
 /* BOLSA */
 
 .bolsas {}

@@ -65,9 +65,9 @@
 
         <div class="semesters">
             <ul class="semester-list">
-                <li data-additional-sem="0">Todos os semestres</li>
-                <li data-additional-sem="1">2º Semestre</li>
-                <li data-additional-sem="2">1º Semestre</li>
+                <li id="sem0" data-additional-sem="0">Todos os semestres</li>
+                <li id="sem2" data-additional-sem="2">2º Semestre</li>
+                <li id="sem1" data-additional-sem="1">1º Semestre</li>
             </ul>
         </div>
 
@@ -81,6 +81,7 @@
                     </div>
                 </div>
             </div>
+<!--
             <div class="col-xs-4 col-lg-3 col-md-2 col-sm-12">
                 <div class="bolsa flex-item">
                     <div class="curso-img">
@@ -116,6 +117,7 @@
                     </div>
                 </div>
             </div>
+-->
         </div>
     </div>
 
@@ -377,7 +379,8 @@
 
         localStorageData(selected_courses, "my-courses");
 
-        populateCourses(selected_courses);
+        //populateCourses(selected_courses);
+        filterSemester(0);
 
 
     }
@@ -411,18 +414,29 @@
 
     }
 
+    var current_semester;
     function filterSemester(semester) {
-
-        let courses = initializeMyCourses();
         
-        if(semester == 0) {
-            populateCourses(courses);
-        } else {
-            courses = courses.filter(function(el) { return el.enrollment_semester == new Date().getFullYear() + "." + semester; })
+        if(semester != current_semester) {
+            let courses = initializeMyCourses();
+
+            if(semester == 0) {
+                populateCourses(courses);
+            } else {
+                courses = courses.filter(function(el) { return el.enrollment_semester == new Date().getFullYear() + "." + semester; });
+                populateCourses(courses);
+            }
+            
+            document.querySelectorAll("ul.semester-list li").forEach(function(elm) {
+                elm.classList.remove("semester-active");
+            });
+            
+            document.querySelector("#sem" + semester).classList.add("semester-active");
+            
+            current_semester = semester;
+            console.log("SEMESTER", courses);
+            console.log("SEMESTER NUM", semester);
         }
-        
-        console.log("SEMESTER", courses);
-
     }
 
     </script>
@@ -476,7 +490,7 @@
         </div>`;
 
         var curso =
-            `<div class="col-xs-4 col-lg-3 col-md-2 col-sm-12">
+            `<div class="col-xs-4 col-lg-3 col-md-2 col-sm-12 bolsa-item">
             <div class="bolsa flex-item">
                 <div class="curso-img">
                     <img class="bolsa-img" src="https://www.tryimg.com/u/2019/04/16/unip.png">
@@ -543,7 +557,10 @@
 
         function populateCourses(courses) {
 
-            var coursesElm = document.getElementById("bolsa");
+            var coursesElm = document.getElementById("bolsas");
+            coursesElm.querySelectorAll(".bolsa-item").forEach(function(elm) { 
+                elm.remove()
+            })
             
             //coursesElm.innerHTML = "";
 
@@ -679,10 +696,7 @@
             } else {
                 return [];
             }
-        };
-        filterSemester();
-
-
+        };        
 
         function htmlToElement(html) {
             var template = document.createElement('template');
@@ -714,13 +728,12 @@
                     elm.append(htmlToElement(blank_star));
                 }
 
-            }
-
-            //console.log(stars);
-
-
-
+            }        
         }
+
+        /* INÍCIO LISTAGEM CURSOS ESCOLHIDOS PELO USUÁRIO */
+        filterSemester(0);
+
     </script>
 
 
