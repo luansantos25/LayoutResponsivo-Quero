@@ -112,12 +112,28 @@
     footer .whatsapp-icon {
         font-size: 40px;
         margin-right: 50px;
-    }
-
-
-
+    }    
 }
 
 @media (max-width: 1199.98px) {
-    ...
+       /* LISTAGEM DE BOLSAS  MODAL */
+    
+    form.form-bolsa .form-group {
+        flex-direction: column;
+    }
+    
+    form.form-bolsa .form-group .input {
+        min-width: 100%;
+        margin-top: 20px;
+    }    
+    
+    #adicionar-bolsa-modal .results .result .description div {
+        flex-direction: column;
+        margin-left: 20px;
+    }
+    
+    #adicionar-bolsa-modal .results .result .description div .info {
+        margin-bottom: 20px;
+    }
+
 }

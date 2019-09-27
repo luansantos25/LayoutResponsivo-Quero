@@ -3,12 +3,22 @@
   /*  padding: 0 20px;*/
 }  
 
+.row .col-12 {
+    padding-right: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    flex: 0 0 100%;
+    min-width: 100%;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
 .container {
     width: 576px;
 
 }  
+
+
 
 .row .col-sm-12 {
     padding-right: 10px;
