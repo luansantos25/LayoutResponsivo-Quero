@@ -216,7 +216,7 @@
                 </div>
             </div>
             <div class="options">
-                <button class="btn-delete">Cancelar</button>
+                <button id="btn-delete-modal" class="btn-delete">Cancelar</button>
                 <button id="btn-add-bolsas" class="btn-see-offer" disabled="disabled">Adicionar bolsa(s)</button>
             </div>
 
@@ -248,6 +248,9 @@
 
     var order_filter = document.getElementById("filter-order");
     order_filter.addEventListener("click", function(evt){orderByUniversityName()}, false);
+        
+    var btn_delete_modal = document.getElementById("btn-delete-modal");
+    btn_delete_modal.addEventListener("click", function(evt){ span.click()}, false);        
 
     var slider = document.getElementById("filter-price");
     var output = document.getElementById("slider-display");
@@ -347,6 +350,12 @@
         console.log("CONFIRMANDO", selected_courses);
         localStorageData(selected_courses, "my-courses");
         filterSemester(0, true);
+        
+        document.querySelectorAll("input.bolsa-check-list").forEach(function(elm) {
+            elm.checked = false;
+        })
+
+        document.getElementById("btn-add-bolsas").disabled = true;
 
         // Fechando modal
         span.click();
@@ -518,10 +527,8 @@
 
                 console.log(result);
 
-
                 initializeCityFilter(result);
                 initializeCoursesFilter(result) ;
-                //populateCourses(result);
                 populateCoursesList(result);
 
             })
@@ -536,18 +543,12 @@
                 elm.remove()
             })
             
-            //coursesElm.innerHTML = "";
-
-            flag = 1;
 
             courses.forEach(function(course) {
 
-                if (flag == 1) {
                     var elm = htmlToElement(curso);
-                    //elm.getElementsByTagName('h3')[0].textContent = course.course.name;
 
                     elm.getElementsByClassName('bolsa-title')[0].textContent = course.university.name;
-
                     elm.getElementsByClassName('bolsa-description')[0].textContent = course.course.name;
                     elm.getElementsByClassName('bolsa-img')[0].src = course.university.logo_url;
                     elm.getElementsByClassName('bolsa-inicio')[0].textContent = course.start_date;
@@ -562,11 +563,6 @@
                                   rmBolsa(evt);
                                   console.log("CALL REMOVE BOlsa");
                     });
-
-
-                    //flag = 0;
-                }
-
             });
         }
 
@@ -576,11 +572,8 @@
             var coursesListElm = document.getElementById("course-list");
             coursesListElm.innerHTML = "";
 
-            flag = 1;
 
             courses.forEach(function(course, i) {
-
-                if (flag == 1) {
 
                     var elm = htmlToElement(curso_list);
 
@@ -597,9 +590,6 @@
                     });
 
                     coursesListElm.append(elm);
-
-                    //flag = 0;
-                }
 
             });
         }
