@@ -429,6 +429,10 @@ form.form-bolsa .filter {
 
 }
 
+.results .result .info h4 {
+    color: #007A8D;
+}
+
 .bolsa-disc-list, .bolsa-value-all {
     color: #0FA866;
     font-weight: 600;
