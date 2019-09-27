@@ -95,6 +95,7 @@ button {
     border: solid 1px;
     font-weight: 600;
     font-size: 16px;
+    cursor: pointer;
 }
 
 button.btn-delete {
@@ -218,6 +219,7 @@ header#header .h-box-left div {
     border-collapse: collapse;
     padding: 10px;
     text-align: center;
+    cursor: pointer;
 }
 
 .semesters ul.semester-list li:first-child {
@@ -258,6 +260,7 @@ header#header .h-box-left div {
 
 .add-bolsa {
     justify-content: center;
+    cursor: pointer;
 }
 
 .add-bolsa .plus-icon {
@@ -519,7 +522,7 @@ form.form-bolsa .filter {
     /* Enable scroll if needed */
     background-color: rgb(0, 0, 0);
     /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(31,45,48, 0.88);
     /* Black w/ opacity */
 }
 

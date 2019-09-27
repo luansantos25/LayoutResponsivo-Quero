@@ -248,7 +248,7 @@
             </div>
             <div class="options">
                 <button class="btn-delete">Cancelar</button>
-                <button id="btn-add-bolsas" class="btn-see-offer">Adicionar bolsas</button>
+                <button id="btn-add-bolsas" class="btn-see-offer" disabled="disabled">Adicionar bolsas</button>
             </div>
 
         </div>
@@ -288,13 +288,14 @@
     var slider_value = slider.value;
     output.innerHTML = slider_value;
 
-    // Update the current slider value (each time you drag the slider handle)
+    /* CAPTURANDO EVENTO SLIDER */
     slider.oninput = function() {
         slider_value = this.value;
         output.innerHTML = slider_value;
       filter();
     }
     
+    /* ADICIONANDO LISTENER PARA OS BOTÕES DE FILTRAGEM DE SEMESTRE */
     document.querySelectorAll("ul.semester-list li")
         .forEach(function(elm) {
             console.log(elm.dataset.additionalSem);
@@ -303,6 +304,7 @@
         
           })
 
+    /* DEFINIÇÕES DE FILTRO NA BUSCA POR BOLSAS MODAL*/
     function filter() {
         console.log('filter go go');
         selected_courses = [];
@@ -352,6 +354,7 @@
 
     }
 
+    /* ORDENANDO LISTAGEM DE BOLSAS POR UNIVERSIDADE */
     function orderByUniversityName() {
 
         var order_icon = order_filter.childNodes[1].classList;
@@ -370,21 +373,17 @@
         populateCoursesList(courses_filtered);
     }
 
+    /* CONFIRMANDO A ADIÇÃO DA BOLSA SELECIONADA */
     function confirmAddBolsas() {
         console.log("CONFIRMANDO", selected_courses);
-
-        // selected_courses = selected_courses.map(function(elm) {
-        //         return elm.data;
-        //     })
-
         localStorageData(selected_courses, "my-courses");
+        filterSemester(0, true);
 
-        //populateCourses(selected_courses);
-        filterSemester(0);
-
-
+        // Fechando modal
+        span.click();
     }
 
+    /* REMOVENDO BOLSA */
     function rmBolsa(evt) {
         console.log(evt.target.dataset.additionalId);
         var id = evt.target.dataset.additionalId;
@@ -393,6 +392,7 @@
         evt.target.parentElement.parentElement.parentElement.hidden = true;
     }
 
+    /* VERIFICANDO E PERSISTINDO DADOS NO BROWSER */
     function localStorageData(data, name) {
         if(!localStorage.getItem(name)) {
             localStorage.setItem(name, JSON.stringify(data));
@@ -403,6 +403,7 @@
         }
     }
 
+    /* REMOVENDO DADOS DO BROWSER */
     function localStorageRemove(id, name) {
             var courses_obj = JSON.parse(localStorage.getItem(name));
             courses_obj = courses_obj.filter(function(el) { return el.id != id; })
@@ -414,16 +415,17 @@
 
     }
 
+    /* FILTRANDO SEMESTRES */
     var current_semester;
-    function filterSemester(semester) {
+    function filterSemester(semester, refresh = false) {
         
-        if(semester != current_semester) {
+        if((semester != current_semester) || refresh) {
             let courses = initializeMyCourses();
 
             if(semester == 0) {
                 populateCourses(courses);
             } else {
-                courses = courses.filter(function(el) { return el.enrollment_semester == new Date().getFullYear() + "." + semester; });
+                courses = courses.filter(function(el) { return el.enrollment_semester.split(".")[1] == semester; });
                 populateCourses(courses);
             }
             
@@ -617,7 +619,7 @@
                     elm.getElementsByClassName('bolsa-value-list')[0].textContent = Math.floor(course.price_with_discount);
                     elm.getElementsByClassName('bolsa-img-list')[0].src = course.university.logo_url;
 
-                    elm.addEventListener("click", function(evt) {
+                    elm.querySelector("input").addEventListener("click", function(evt) {
                                   addBolsas(evt);
                                   console.log("CALL");
                     });
@@ -630,7 +632,7 @@
             });
         }
 
-        /* ADICIONAR BOLSAS */
+        /* ADICIONAR BOLSAS - CLICK CHECKBOX */
         var selected_courses = [];
         function addBolsas(evt) {
             console.log("ADD BOLSAS CALL");
@@ -641,12 +643,19 @@
             console.log(evt.target.dataset.additionalId);
             console.log(evt.target.checked);
 
+            // checando se a bolsa será adicionada ou removida
             if(operation) {
                 console.log(courses_data[bolsa_id]);
                 selected_courses.push(courses_data[bolsa_id]);
             } else {
                 selected_courses = selected_courses.filter(function(el) { return el.id != bolsa_id; })
             }
+
+            // habilitando botão para add bolsa se houverem itens selecionados
+            if(!selected_courses.length > 0)
+                document.getElementById("btn-add-bolsas").disabled = true;
+            else
+                document.getElementById("btn-add-bolsas").disabled = false;
 
             console.log("SELECTED ", selected_courses);
 
@@ -692,7 +701,7 @@
 
         function initializeMyCourses() {
             if(courses_local = localStorage.getItem("my-courses")) {
-                return JSON.parse(courses_local);
+                return JSON.parse(courses_local).reverse();
             } else {
                 return [];
             }
