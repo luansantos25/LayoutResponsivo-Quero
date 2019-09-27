@@ -109,6 +109,71 @@ button.btn-see-offer {
     border: none;
 }
 
+/* CHECKBOX */
+
+/* The container */
+.cbx-container {
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.cbx-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #fff;
+    border: solid 1px;
+    border-radius: 4px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.cbx-container input:checked ~ .checkmark {
+  background-color: #18ACC4;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.cbx-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.cbx-container .checkmark:after {
+  left: 5px;
+  top: 0px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 /* HEADER */
 
 header#header {
@@ -377,55 +442,85 @@ footer .f-end {
 
 /* MODAL FORM*/
 
-form.form-bolsa {
+#adicionar-bolsa-modal form.form-bolsa {
     margin-top: 40px;
 }
 
-.hz-form .input {
+#adicionar-bolsa-modal .hz-form .input {
     flex: 1;
     max-width: 48%;
 }
 
-form .form-group {
+#adicionar-bolsa-modal form .form-group {
     margin-bottom: 30px;
 }
 
-form select {
+#adicionar-bolsa-modal form select {
     background-color: #fff;
     width: -webkit-fill-available;
     height: 40px;
     border-radius: 5px;
 }
 
-form input[type='range'] {
+#adicionar-bolsa-modal form input[type='range'] {
     width: -webkit-fill-available;
+    background-color: #18ACC4;
 }
 
 /* MODAL - RESULTADOS */
 
-.results .result {
+#adicionar-bolsa-modal .results {
+    height: 400px;
+    overflow: auto;
+}
+
+#adicionar-bolsa-modal .results .result {
     border-top: solid 2px gray;
     padding: 30px 0;
 }
 
-.results .result .info {
+#adicionar-bolsa-modal .results .result .info {
     line-height: 30px;
 }
 
-.results .result img {
+#adicionar-bolsa-modal .results .result img {
     width: 70%;
+    min-width: 100px;
     margin: 0 auto;
 }
 
-form.form-bolsa .filter {
+#adicionar-bolsa-modal .option {
+    position: relative;
+}
+
+#adicionar-bolsa-modal form.form-bolsa .filter {
     line-height: 25px;
 }
 
-.list-header {
+#adicionar-bolsa-modal form.form-bolsa .filter .cbx-container {
+    margin-right: 25px;
+}
+
+#adicionar-bolsa-modal form.form-bolsa .top-filter .input label, #adicionar-bolsa-modal form.form-bolsa .input h4 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+#adicionar-bolsa-modal #filter-order {
+    color: #18ACC4;
+    cursor: pointer;
+}
+
+#adicionar-bolsa-modal .options {
+    margin-top: 10px;
+}
+
+#adicionar-bolsa-modal .list-header {
     padding: 10px 0;
 }
 
-.bolsa-disc-list {
+#adicionar-bolsa-modal .bolsa-disc-list {
 
 }
 
@@ -483,7 +578,7 @@ form.form-bolsa .filter {
     border-radius: 50%;
     background: #fff;
     /* Green background */
-    border: solid 3px #4CAF50;
+    border: solid 3px #18ACC4;
     cursor: pointer;
     /* Cursor on hover */
 }
@@ -494,9 +589,9 @@ form.form-bolsa .filter {
     height: 25px;
     /* Slider handle height */
     border-radius: 50%;
-    background: #4CAF50;
+    background: #fff;
     /* Green background */
-    border: solid 3px #4CAF50;
+    border: solid 3px #18ACC4;
     cursor: pointer;
     /* Cursor on hover */
 }

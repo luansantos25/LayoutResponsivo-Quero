@@ -81,43 +81,6 @@
                     </div>
                 </div>
             </div>
-<!--
-            <div class="col-xs-4 col-lg-3 col-md-2 col-sm-12">
-                <div class="bolsa flex-item">
-                    <div class="curso-img">
-                        <img class="bolsa-img" src="https://www.tryimg.com/u/2019/04/16/unip.png">
-                    </div>
-                    <div class="text">
-                        <h3 class="bolsa-title">Anhanguera</h3>
-                        <h3 class="bolsa-description">Engenharia da Computação</h3>
-                        <p class="bolsa-score">
-                            <span class="number">5</span>
-                            <span class="stars">
-                                <i class="fas fa-star bolsa-score"></i>
-                                <i class="fas fa-star bolsa-score"></i>
-                                <i class="fas fa-star bolsa-score"></i>
-                                <i class="fas fa-star bolsa-score"></i>
-                                <i class="fas fa-star bolsa-score"></i>
-                            </span>
-                        </p>
-                    </div>
-                    <div class="box-type">
-                        <h3 class="bolsa-tipo">Presencial - Noite</h3>
-                        <p>Início das aulas em: <span class="bolsa-inicio">10/10/2010</span></p>
-                    </div>
-                    <div class="box-monthly">
-                        <h4>Mensalidade com o Quero Bolsa:</h4>
-                        <p class="bolsa-preco-total">R$ 999,99</p>
-                        <span class="bolsa-preco">R$ 499,00</span>
-                        <span>/mês</span>
-                    </div>
-                    <div class="options">
-                        <button class="btn-delete">Excluir</button>
-                        <button class="btn-see-offer">Ver Oferta</button>
-                    </div>
-                </div>
-            </div>
--->
         </div>
     </div>
 
@@ -187,12 +150,12 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Adicionar bolsa</h2>
-            <p>Filtre e adicione as bolsas de seu interesse</p>
+            <p>Filtre e adicione as bolsas de seu interesse.</p>
 
             <form class="hz-form form-bolsa">
-                <div class="form-group d-flex justify-content-space-between">
+                <div class="form-group d-flex justify-content-space-between top-filter">
                     <div class="input">
-                        <label>Cidade</label>
+                        <label>Selecione sua cidade</label>
                         <select id="filter-city">
                             <option value="" selected>Cidade</option>
                         </select>
@@ -200,7 +163,7 @@
                     <div class="input">
                         <label>Selecione o curso de sua preferência</label>
                         <select id="filter-course">
-                            <option value="" selected>Cidade</option>
+                            <option value="" selected>Curso</option>
                         </select>
                     </div>
                 </div>
@@ -209,14 +172,20 @@
                     <div class="input">
                         <h4>Como você pretende estudar?</h4>
                         <br>
-                        <input type="checkbox" id="filter-presential" name="">
-                        <label>Presencial</label>
-                        <input type="checkbox" id="filter-distance" name="">
-                        <label>A distância</label>
+                        <label class="cbx-container">
+                            <input type="checkbox" id="filter-presential" name="">
+                            <span class="checkmark"></span>                            
+                            Presencial
+                        </label>
+                        <label class="cbx-container">
+                            <input type="checkbox" id="filter-distance" name="">
+                            <span class="checkmark"></span>                                                        
+                        A distância
+                        </label>
                     </div>
                     <div class="input">
                         <h4>Até quanto pode pagar?</h4>
-                        <p id="slider-display">0</p>
+                        <p>R$ <span id="slider-display"></span></p>
                         <input type="range" class="slider" id="filter-price" name="points" min="50" max="2000">
                     </div>
                 </div>
@@ -248,7 +217,7 @@
             </div>
             <div class="options">
                 <button class="btn-delete">Cancelar</button>
-                <button id="btn-add-bolsas" class="btn-see-offer" disabled="disabled">Adicionar bolsas</button>
+                <button id="btn-add-bolsas" class="btn-see-offer" disabled="disabled">Adicionar bolsa(s)</button>
             </div>
 
         </div>
@@ -474,7 +443,10 @@
         var curso_list =
         `<div class="result d-flex align-items-center">
             <div class="option d-flex flex-1 align-items-center">
-                <input class="bolsa-check-list" type="checkbox" name="" data-additional-id="">
+                <label class="cbx-container">
+                    <input class="bolsa-check-list" type="checkbox" name="" data-additional-id="">
+                    <span class="checkmark"></span>
+                </label>
                 <img class="bolsa-img-list" src="img/quero-bolsa.png">
             </div>
             <div class="description flex-3">
