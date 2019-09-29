@@ -99,7 +99,7 @@ button {
 }
 
 button.btn-delete {
-  background-color: #fff;
+  background-color: #FFF;
     color: #18ACC4;
 }
 
@@ -107,6 +107,11 @@ button.btn-see-offer {
     background-color: #FDCB13;
     width: 120px;
     border: none;
+}
+
+button:disabled {
+    background-color: #FBFBFB !important;
+    cursor: default !important;
 }
 
 /* CHECKBOX */
@@ -187,7 +192,8 @@ header#header .header-center {
 
 header#header .header-center img {
     display: block;
-    width: 100px;
+    width: 60%;
+    min-width: 130px;
     margin: 0 auto;
 }
 
