@@ -6,6 +6,7 @@
 
 const URL_TO_FETCH = 'https://testapi.io/api/redealumni/scholarships';
 var COURSES_DATA;
+var courses_filtered;
 
 fetch(URL_TO_FETCH, {
         method: 'get'
@@ -20,6 +21,7 @@ fetch(URL_TO_FETCH, {
 
         // atribuindo resultados em variável global
         COURSES_DATA = result;
+        courses_filtered = COURSES_DATA;
         console.log(result);
 
         initializeCityFilter(COURSES_DATA);
@@ -119,7 +121,6 @@ document.querySelectorAll("ul.semester-list li")
     })
 
 /* DEFINIÇÕES DE FILTRO NA BUSCA POR BOLSAS MODAL*/
-var courses_filtered = [];
 function filter() {
     console.log('filter go go');
     selected_courses = [];
