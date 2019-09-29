@@ -416,11 +416,20 @@ footer {
     margin-top: 40px;
 }
 
+footer .f-bottom div span {
+    font-weight: 600;
+}
+
+footer .f-top div span {
+    font-weight: 600;
+}
+
+
 footer .chat,
 footer .email,
 footer .help {
     text-align: center;
-    padding: 40px;
+    padding: 40px 0;
     font-size: 18px;
     flex: 1;
 }
