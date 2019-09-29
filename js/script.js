@@ -248,9 +248,9 @@ function confirmAddBolsas() {
 /* REMOVENDO BOLSA */
 function rmBolsa(evt) {
     console.log(evt.target.dataset.additionalId);
-    var id = evt.target.dataset.additionalId;
+    let id = evt.target.dataset.additionalId;
 
-    current_courses = localStorageRemove(id, "my-courses");
+    let current_courses = localStorageRemove(id, "my-courses");
     evt.target.parentElement.parentElement.parentElement.hidden = true;
 }
 
@@ -283,7 +283,7 @@ function populateCourses(courses) {
 
         // desabilitando cursos
         if (!course.enabled) {
-            _elm = elm.getElementsByClassName('btn-see-offer')[0];
+            let _elm = elm.getElementsByClassName('btn-see-offer')[0];
             _elm.textContent = "Indisponível";
             _elm.disabled = true;
         }
