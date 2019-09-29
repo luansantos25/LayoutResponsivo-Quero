@@ -334,6 +334,7 @@ header#header .h-box-left div {
 .add-bolsa {
     justify-content: center;
     cursor: pointer;
+    align-items: center;
 }
 
 .add-bolsa .plus-icon {
