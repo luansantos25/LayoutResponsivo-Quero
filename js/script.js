@@ -119,6 +119,7 @@ document.querySelectorAll("ul.semester-list li")
     })
 
 /* DEFINIÇÕES DE FILTRO NA BUSCA POR BOLSAS MODAL*/
+var courses_filtered = [];
 function filter() {
     console.log('filter go go');
     selected_courses = [];
@@ -128,7 +129,7 @@ function filter() {
     // cursos selecionado
     let selected_course = course_filter.options[course_filter.selectedIndex].value;
     // array de bolsas filtradas sendo inicializado com todos as bolsas disponíveis
-    let courses_filtered = getGlobalCouseList();
+    courses_filtered = getGlobalCouseList();
 
     // filtrando por cidade
     if (selected_city != "") {
