@@ -12,7 +12,6 @@
     footer .f-icon {
         font-size: 45px;
     }
-
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -35,20 +34,6 @@
         border-radius: 10px 0 0 10px;
     }
 
-    /* BOLSAS */
-
-    .add-bolsa {
-        /*width: 200px;*/
-        /* width: 154px;
-        height: 400px; */
-    }
-
-/*
-    .bolsas .curso-img img {
-        height: 50px;
-    }
-*/
-
     /* FOOTER */
     footer .chat,
     footer .email,
@@ -67,21 +52,14 @@
     footer .f-icon {
         margin-right: 14px;
     }
-
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {}
 
+@media (max-width: 575.98px) {}
 
-
-@media (max-width: 575.98px) {
-    ...
-}
-
-@media (max-width: 767.98px) {
-    ...
-}
+@media (max-width: 767.98px) {}
 
 @media (max-width: 991.98px) {
 
@@ -116,7 +94,8 @@
 }
 
 @media (max-width: 1199.98px) {
-       /* LISTAGEM DE BOLSAS  MODAL */
+
+    /* LISTAGEM DE BOLSAS  MODAL */
 
     form.form-bolsa .form-group {
         flex-direction: column;
@@ -135,5 +114,4 @@
     #adicionar-bolsa-modal .results .result .description div .info {
         margin-bottom: 20px;
     }
-
 }

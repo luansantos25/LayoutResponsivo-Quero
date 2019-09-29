@@ -82,7 +82,6 @@ h4 {
 }
 
 .container {
-    /*max-width: 80%;*/
     margin: 0 auto;
 }
 
@@ -116,7 +115,6 @@ button:disabled {
 
 /* CHECKBOX */
 
-/* The container */
 .cbx-container {
   position: relative;
   padding-left: 35px;
@@ -128,7 +126,6 @@ button:disabled {
   user-select: none;
 }
 
-/* Hide the browser's default checkbox */
 .cbx-container input {
   position: absolute;
   opacity: 0;
@@ -137,7 +134,6 @@ button:disabled {
   width: 0;
 }
 
-/* Create a custom checkbox */
 .checkmark {
   position: absolute;
   top: 0;
@@ -145,28 +141,24 @@ button:disabled {
   height: 18px;
   width: 18px;
   background-color: #fff;
-    border: solid 1px;
-    border-radius: 4px;
+  border: solid 1px;
+  border-radius: 4px;
 }
 
-/* When the checkbox is checked, add a blue background */
 .cbx-container input:checked ~ .checkmark {
   background-color: #18ACC4;
 }
 
-/* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-/* Show the checkmark when checked */
 .cbx-container input:checked ~ .checkmark:after {
   display: block;
 }
 
-/* Style the checkmark/indicator */
 .cbx-container .checkmark:after {
   left: 5px;
   top: 0px;
@@ -321,9 +313,6 @@ header#header .h-box-left div {
     font-weight: normal;
 }
 
-.bolsas {}
-
-
 .bolsa {
     display: flex;
     flex-direction: column;
@@ -333,7 +322,6 @@ header#header .h-box-left div {
     margin-top: 50px;
     padding: 0 20px;
     box-shadow: 0px 1px 5px 0px;
-    ;
     text-align: center;
 }
 
@@ -370,7 +358,6 @@ header#header .h-box-left div {
 .bolsas .curso-img img {
     display: block;
     margin: 0 auto;
-    /*    width: 100%;*/
     height: 100%;
 }
 
@@ -414,7 +401,6 @@ header#header .h-box-left div {
     height: 40px;
 }
 
-
 /* FOOTER */
 
 footer {
@@ -430,7 +416,6 @@ footer .f-bottom div span {
 footer .f-top div span {
     font-weight: 600;
 }
-
 
 footer .chat,
 footer .email,
@@ -549,10 +534,6 @@ footer .f-end {
     text-align: right;
 }
 
-#adicionar-bolsa-modal .bolsa-disc-list {
-
-}
-
 .results .result .info h4 {
     color: #007A8D;
 }
@@ -566,63 +547,42 @@ footer .f-end {
 
 .slidecontainer {
     width: 100%;
-    /* Width of the outside container */
 }
 
-/* The slider itself */
 .slider {
     -webkit-appearance: none;
-    /* Override default CSS styles */
     appearance: none;
     width: 100%;
-    /* Full-width */
     height: 5px;
-    /* Specified height */
     background: #d3d3d3;
-    /* Grey background */
     outline: none;
-    /* Remove outline */
     opacity: 0.7;
-    /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: .2s;
-    /* 0.2 seconds transition on hover */
     transition: opacity .2s;
 }
 
-/* Mouse-over effects */
 .slider:hover {
     opacity: 1;
-    /* Fully shown on mouse-over */
 }
 
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
-    /* Override default look */
     appearance: none;
     width: 25px;
-    /* Set a specific slider handle width */
     height: 25px;
-    /* Slider handle height */
     border-radius: 50%;
     background: #fff;
-    /* Green background */
     border: solid 3px #18ACC4;
     cursor: pointer;
-    /* Cursor on hover */
 }
 
 .slider::-moz-range-thumb {
     width: 25px;
-    /* Set a specific slider handle width */
     height: 25px;
-    /* Slider handle height */
     border-radius: 50%;
     background: #fff;
-    /* Green background */
     border: solid 3px #18ACC4;
     cursor: pointer;
-    /* Cursor on hover */
 }
 
 #adicionar-bolsa-modal form.form-bolsa .options {
@@ -633,44 +593,30 @@ footer .f-end {
   width: 200px;
 }
 
-
 /* MODAL */
 
-/* The Modal (background) */
 .modal {
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
     z-index: 1;
-    /* Sit on top */
     left: 0;
     top: 0;
     width: 100%;
-    /* Full width */
     height: 100%;
-    /* Full height */
     overflow: auto;
-    /* Enable scroll if needed */
     background-color: rgb(0, 0, 0);
-    /* Fallback color */
     background-color: rgba(31,45,48, 0.88);
-    /* Black w/ opacity */
 }
 
-/* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
     margin: 5% auto;
-    /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 50%;
-    /* Could be more or less, depending on screen size */
     min-width: 310px;
 }
 
-/* The Close Button */
 .close {
     color: #aaa;
     float: right;
