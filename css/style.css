@@ -264,6 +264,10 @@ header#header .h-box-left div {
     color: #007A8D;
 }
 
+.navigation a:last-child {
+    color: #1F2D30;
+}
+
 /* CONTENT */
 .semesters {
     overflow: auto;
@@ -302,10 +306,14 @@ header#header .h-box-left div {
 
 .semester-active {
     background-color: #007A8D;
-    color: #fff; 
+    color: #fff;
 }
 
 /* BOLSA */
+
+.top-info h3 {
+    font-weight: normal;
+}
 
 .bolsas {}
 
@@ -520,6 +528,11 @@ footer .f-end {
     padding: 10px 0;
 }
 
+#adicionar-bolsa-modal .list-header h4 span.sort{
+    display: block;
+    text-align: right;
+}
+
 #adicionar-bolsa-modal .bolsa-disc-list {
 
 }
@@ -638,7 +651,7 @@ footer .f-end {
     border: 1px solid #888;
     width: 50%;
     /* Could be more or less, depending on screen size */
-    min-width: 320px;
+    min-width: 310px;
 }
 
 /* The Close Button */
